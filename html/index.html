@@ -538,19 +538,9 @@
                                     <dd>+39 393 1701767</dd>
                                     <dt>Email:</dt>
                                     <dd>
-                                        <a
-                                            href="/cdn-cgi/l/email-protection#3b5f525f525e497b5f555f15484f4e5f5254"
-                                            ><span
-                                                class="__cf_email__"
-                                                data-cfemail="791d101d101c0b391d171d570a0d0c1d1016"
-                                                >[email&#160;protected]</span
-                                            ></a
-                                        >
+                                        <a href="mailto:info@didiernd.com">info@didiernd.com</a>
                                     </dd>
-                                    <dt>LinkedIn:</dt>
-                                    <dd>Didier Naim Defli</dd>
                                 </dl>
-                                <hr class="ts-hr-light mb-5" />
                             </div>
                         </div>
                     </div>
@@ -582,9 +572,9 @@
                         <div class="ts-title text-center">
                             <h2>Every project is unique</h2>
                         </div>
-                        <h4>The right tool for the craft.</h4>
                         <div class="row">
                             <div class="col-md-6">
+                                <h4 class="text-primary">The right tool for the craft.</h4>
                                 <p>
                                     Technology follows the vision, constraints,
                                     and deadlines. Each project shapes the
@@ -1314,14 +1304,7 @@
                                 <h5>Email</h5>
                                 <div class="ts-opacity__50">
                                     <figure class="mb-0">
-                                        <a
-                                            href="/cdn-cgi/l/email-protection#bbdfd2dfd2dec9fbdfd5df95c8cfcedfd2d4"
-                                            ><span
-                                                class="__cf_email__"
-                                                data-cfemail="dbbfb2bfb2bea99bbfb5bff5a8afaebfb2b4"
-                                                >[email&#160;protected]</span
-                                            ></a
-                                        >
+                                        <a href="mailto:info@didiernd.com">info@didiernd.com</a>
                                     </figure>
                                 </div>
                             </div>
@@ -1736,6 +1719,36 @@
                 videoPlayer.src = "";
                 overlay.classList.remove("active");
             }
+        </script>
+
+        <!-- Navbar active state based on scroll position -->
+        <script>
+            $(document).ready(function() {
+                var sections = $('section[id], #page-top');
+                var navLinks = $('.nav-link.ts-scroll');
+                
+                $(window).on('scroll', function() {
+                    var scrollPos = $(window).scrollTop() + 100;
+                    
+                    sections.each(function() {
+                        var section = $(this);
+                        var sectionTop = section.offset().top;
+                        var sectionBottom = sectionTop + section.outerHeight();
+                        var sectionId = section.attr('id');
+                        
+                        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                            navLinks.removeClass('active');
+                            $('a[href="#' + sectionId + '"]').addClass('active');
+                        }
+                    });
+                    
+                    // Se siamo in cima, attiva Home
+                    if ($(window).scrollTop() < 100) {
+                        navLinks.removeClass('active');
+                        $('a[href="#page-top"]').addClass('active');
+                    }
+                });
+            });
         </script>
     </body>
 </html>

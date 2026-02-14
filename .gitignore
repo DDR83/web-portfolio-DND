@@ -1,0 +1,19 @@
+# Video pesanti (gestiti separatamente)
+*.mp4
+*.mov
+*.avi
+
+# File di backup e copie
+*- Copy*
+*- Copia*
+old/
+
+# Cartelle inutili al deploy
+documentation/
+html/assets/pcss/
+psd/
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini

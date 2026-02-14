@@ -1,0 +1,2433 @@
+/*----------------------------------------------------------------------------------------------------------------------
+  D.N.D – Think Design Visualize
+  style.css  v2.0
+
+  Palette
+    Primary   : #d7ff00   (acid yellow-green)
+    Accent    : #ed3a12   (burnt orange / hover)
+    Dark BG   : #020312
+    Ink Dark  : #131d36
+
+  Typography
+    Display   : 'Share Tech', monospace
+    Body      : 'Roboto', sans-serif  14px / 1rem
+
+----------------------------------------------------------------------------------------------------------------------
+
+  [Table of contents]
+
+  0. CSS Custom Properties
+  A. Base
+     – Reset / Root
+     – Typography
+     – Links
+     – Body
+  B. Utilities / Helpers
+     – Animations
+     – Align
+     – Background
+     – Borders
+     – Colors
+     – Column Count
+     – Height / Width
+     – Margin / Padding
+     – Opacity
+     – Overflow
+     – Position
+     – Shadow
+     – Z-Index
+  C. Components
+     – Block
+     – Blockquote
+     – Box
+     – Buttons
+     – Card / Gallery
+     – Circle
+     – Description List
+     – Forms
+     – HR
+     – Hero
+     – Item
+     – List
+     – Loading Screen
+     – Map
+     – Navbar
+     – Page
+     – Partners
+     – Progress
+     – Promo Numbers
+     – Select
+     – Slider / Tabs
+  D. Plugins
+     – Magnific Popup
+     – Owl Carousel
+  E. Template Specific
+     – Footer
+     – Story
+     – Other
+  F. Responsive
+
+----------------------------------------------------------------------------------------------------------------------*/
+
+/* =====================================================================================================================
+   0. CSS CUSTOM PROPERTIES
+   ===================================================================================================================== */
+
+:root {
+    /* Color */
+    --color-primary: #d7ff00;
+    --color-accent: #ff00f6;
+    --color-bg: #020312;
+    --color-ink-dark: #131d36;
+    --color-white: #ffffff;
+    --color-muted: rgba(255, 255, 255, 0.5);
+    --color-overlay: rgba(3, 3, 18, 0.8);
+
+    /* Typography */
+    --font-display: "Share Tech", monospace;
+    --font-body: "Roboto", sans-serif;
+    --font-size-base: 1rem;
+    --line-height-body: 1.6875rem;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.875rem;
+    --space-xl: 3rem;
+    --space-2xl: 5rem;
+    --space-3xl: 8.125rem;
+
+    /* Animation */
+    --ease-standard: cubic-bezier(0.6, 0.01, 0, 1);
+    --duration-fast: 0.3s;
+    --duration-normal: 0.6s;
+    --duration-slow: 1s;
+
+    /* Misc */
+    --navbar-height: 4rem;
+    --progress-h: 0.1875rem;
+}
+
+/* =====================================================================================================================
+   A. BASE
+   ===================================================================================================================== */
+
+/* -- Reset / Root --------------------------------------------------------------------------------------------------- */
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* -- Typography ----------------------------------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.ts-h1,
+.ts-h2,
+.ts-h3,
+.ts-h4,
+.ts-h5,
+.ts-h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+}
+
+h1,
+.ts-h1 {
+    font-size: 2.5rem;
+}
+h2,
+.ts-h2 {
+    font-size: 1.5rem;
+}
+h3,
+.ts-h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5625rem;
+}
+h4,
+.ts-h4 {
+    margin-bottom: 1.875rem;
+}
+h5,
+.ts-h5 {
+    font-size: 1.125rem;
+}
+h6,
+.ts-h6 {
+    font-size: 1rem;
+}
+
+p {
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+    margin-bottom: var(--space-lg);
+    opacity: 0.5;
+}
+
+/* -- Links ---------------------------------------------------------------------------------------------------------- */
+
+a {
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    transition: color var(--duration-fast) ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* -- Description List ----------------------------------------------------------------------------------------------- */
+
+dl dt {
+    color: var(--color-primary);
+}
+dl dd {
+    margin-bottom: var(--space-md);
+}
+
+/* =====================================================================================================================
+   B. UTILITIES / HELPERS
+   ===================================================================================================================== */
+
+/* -- Animations ----------------------------------------------------------------------------------------------------- */
+
+[data-animate] {
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: var(--duration-normal);
+    animation-timing-function: ease;
+}
+
+@keyframes ts-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1.25rem, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes ts-fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -1.25rem, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes ts-fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-1.25rem, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes ts-fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(1.25rem, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes ts-zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes ts-zoomOutIn {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes ts-zoomInShort {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ts-fadeInUp {
+    animation-name: ts-fadeInUp;
+}
+.ts-fadeInDown {
+    animation-name: ts-fadeInDown;
+}
+.ts-fadeInLeft {
+    animation-name: ts-fadeInLeft;
+}
+.ts-fadeInRight {
+    animation-name: ts-fadeInRight;
+}
+.ts-zoomIn {
+    animation-name: ts-zoomIn;
+}
+.ts-zoomOutIn {
+    animation-name: ts-zoomOutIn;
+}
+.ts-zoomInShort {
+    animation-name: ts-zoomInShort;
+}
+
+/* -- Align ---------------------------------------------------------------------------------------------------------- */
+
+.ts-align__vertical {
+    display: flex;
+    align-items: center;
+}
+
+/* -- Background ----------------------------------------------------------------------------------------------------- */
+
+[data-bg-image] {
+    background-size: cover;
+    background-position: center;
+}
+
+.ts-background {
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+}
+
+.ts-background .ts-background {
+    height: 100%;
+    width: 100%;
+}
+
+.ts-background-image,
+.ts-img-into-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.ts-background-image img,
+.ts-img-into-bg img {
+    display: none;
+}
+
+/* Background size / position helpers */
+.ts-background-repeat {
+    background-repeat: repeat;
+    background-size: inherit;
+}
+.ts-background-repeat .ts-background-image {
+    background-repeat: repeat;
+    background-size: inherit;
+}
+.ts-background-original-size {
+    background-size: inherit;
+}
+.ts-background-size-cover {
+    background-size: cover;
+}
+.ts-background-size-contain {
+    background-size: contain;
+}
+.ts-background-repeat-x {
+    background-repeat: repeat-x;
+}
+.ts-background-repeat-y {
+    background-repeat: repeat-y;
+}
+.ts-background-repeat-repeat {
+    background-repeat: repeat;
+}
+.ts-background-position-top {
+    background-position: top;
+}
+.ts-background-position-center {
+    background-position: center;
+}
+.ts-background-position-bottom {
+    background-position: bottom;
+}
+.ts-background-position-left {
+    background-position-x: left !important;
+}
+.ts-background-position-right {
+    background-position-x: right !important;
+}
+
+.ts-background-particles {
+    height: 120%;
+    left: 0;
+    margin-left: -10%;
+    margin-top: -10%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 120%;
+    z-index: 1;
+}
+
+.ts-background-is-dark {
+    color: var(--color-white);
+}
+.ts-background-is-dark .form-control {
+    box-shadow: 0 0 0 0.125rem rgba(255, 255, 255, 0.2);
+}
+.ts-background-is-dark .form-control:focus {
+    box-shadow: 0 0 0 0.125rem rgba(255, 255, 255, 0.4);
+}
+.ts-background-is-dark .ts-btn-border-muted {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Video background */
+.ts-background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.ts-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--color-overlay);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ts-video-bg {
+    height: 100%;
+}
+.ts-video-bg .fluid-width-video-wrapper {
+    height: 100%;
+}
+.ts-video-bg iframe {
+    border: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* -- Borders -------------------------------------------------------------------------------------------------------- */
+
+.ts-border-radius__sm {
+    border-radius: 0.125rem;
+    overflow: hidden;
+}
+.ts-border-radius__md {
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+.ts-border-radius__lg {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.ts-border-radius__xl {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.ts-border-radius__pill {
+    border-radius: 6.25rem !important;
+    overflow: hidden;
+}
+.ts-border-radius__round-shape {
+    border-radius: 187.5rem;
+    overflow: hidden;
+}
+.ts-border-none {
+    border: none;
+}
+.ts-border-bottom {
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+.ts-border-muted {
+    border-color: rgba(25, 25, 25, 0.1) !important;
+}
+.ts-border-light {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* -- Colors --------------------------------------------------------------------------------------------------------- */
+
+.ts-font-color__white {
+    color: var(--color-white);
+}
+.ts-font-color__black {
+    color: #000;
+}
+.ts-font-color__primary {
+    color: var(--color-primary);
+}
+.ts-bg-primary {
+    background-color: var(--color-primary);
+}
+
+/* -- Column Count --------------------------------------------------------------------------------------------------- */
+
+.ts-column-count-2 {
+    column-count: 2;
+}
+.ts-column-count-3 {
+    column-count: 3;
+}
+.ts-column-count-4 {
+    column-count: 4;
+}
+
+/* -- Height --------------------------------------------------------------------------------------------------------- */
+
+.ts-height__50px {
+    height: 3.125rem;
+}
+.ts-height__100px {
+    height: 6.25rem;
+}
+.ts-height__150px {
+    height: 9.375rem;
+}
+.ts-height__200px {
+    height: 12.5rem;
+}
+.ts-height__250px {
+    height: 15.625rem;
+}
+.ts-height__300px {
+    height: 18.75rem;
+}
+.ts-height__350px {
+    height: 21.875rem;
+}
+.ts-height__400px {
+    height: 25rem;
+}
+.ts-height__450px {
+    height: 28.125rem;
+}
+.ts-height__500px {
+    height: 31.25rem;
+}
+.ts-height__600px {
+    height: 37.5rem;
+}
+.ts-height__700px {
+    height: 43.75rem;
+}
+.ts-height__800px {
+    height: 50rem;
+}
+.ts-height__900px {
+    height: 56.25rem;
+}
+.ts-height__1000px {
+    height: 62.5rem;
+}
+
+/* -- Width ---------------------------------------------------------------------------------------------------------- */
+
+.ts-width__10px {
+    width: 0.625rem;
+}
+.ts-width__20px {
+    width: 1.25rem;
+}
+.ts-width__30px {
+    width: 1.875rem;
+}
+.ts-width__40px {
+    width: 2.5rem;
+}
+.ts-width__50px {
+    width: 3.125rem;
+}
+.ts-width__100px {
+    width: 6.25rem;
+}
+.ts-width__200px {
+    width: 12.5rem;
+}
+.ts-width__300px {
+    width: 18.75rem;
+}
+.ts-width__400px {
+    width: 25rem;
+}
+.ts-width__500px {
+    width: 31.25rem;
+}
+.ts-width__inherit {
+    width: inherit !important;
+}
+.ts-width__auto {
+    width: auto !important;
+}
+
+/* -- Margin --------------------------------------------------------------------------------------------------------- */
+
+.ts-mt__0 {
+    margin-top: 0 !important;
+}
+.ts-mr__0 {
+    margin-right: 0 !important;
+}
+.ts-mb__0 {
+    margin-bottom: 0 !important;
+}
+.ts-ml__0 {
+    margin-left: 0 !important;
+}
+
+/* -- Padding -------------------------------------------------------------------------------------------------------- */
+
+.ts-pt__0 {
+    padding-top: 0 !important;
+}
+.ts-pr__0 {
+    padding-right: 0 !important;
+}
+.ts-pb__0 {
+    padding-bottom: 0 !important;
+}
+.ts-pl__0 {
+    padding-left: 0 !important;
+}
+
+/* -- No Gutters ----------------------------------------------------------------------------------------------------- */
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* -- Opacity -------------------------------------------------------------------------------------------------------- */
+
+.ts-opacity__5 {
+    opacity: 0.05;
+}
+.ts-opacity__10 {
+    opacity: 0.1;
+}
+.ts-opacity__20 {
+    opacity: 0.2;
+}
+.ts-opacity__30 {
+    opacity: 0.3;
+}
+.ts-opacity__40 {
+    opacity: 0.4;
+}
+.ts-opacity__50 {
+    opacity: 0.5;
+}
+.ts-opacity__60 {
+    opacity: 0.6;
+}
+.ts-opacity__70 {
+    opacity: 0.7;
+}
+.ts-opacity__80 {
+    opacity: 0.8;
+}
+.ts-opacity__90 {
+    opacity: 0.9;
+}
+
+/* -- Overflow ------------------------------------------------------------------------------------------------------- */
+
+.ts-overflow__hidden {
+    overflow: hidden;
+}
+.ts-overflow__visible {
+    overflow: visible;
+}
+
+/* -- Position ------------------------------------------------------------------------------------------------------- */
+
+.ts-top__0 {
+    top: 0;
+}
+.ts-top__50 {
+    top: 50%;
+}
+.ts-top__100 {
+    top: 100%;
+}
+.ts-right__0 {
+    right: 0;
+}
+.ts-right__50 {
+    right: 50%;
+}
+.ts-right__100 {
+    right: 100%;
+}
+.ts-right__inherit {
+    right: inherit;
+}
+.ts-bottom__0 {
+    bottom: 0;
+}
+.ts-bottom__50 {
+    bottom: 50%;
+}
+.ts-bottom__100 {
+    bottom: 100%;
+}
+.ts-left__0 {
+    left: 0;
+}
+.ts-left__50 {
+    left: 50%;
+}
+.ts-left__100 {
+    left: 100%;
+}
+.ts-left__inherit {
+    left: inherit;
+}
+
+.ts-push-left__100 {
+    transform: translateX(100%);
+}
+.ts-push-down__50 {
+    transform: translateY(50%);
+}
+.ts-push-up__50 {
+    transform: translateY(-50%);
+}
+
+/* -- Shadow --------------------------------------------------------------------------------------------------------- */
+
+.ts-shadow__sm {
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+}
+.ts-shadow__md {
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+}
+.ts-shadow__lg {
+    box-shadow: 0.375rem 0.3125rem 1.5625rem rgba(0, 0, 0, 0.2);
+}
+.ts-shadow__none {
+    box-shadow: none !important;
+}
+
+/* -- Typography helpers --------------------------------------------------------------------------------------------- */
+
+.ts-font-weight__normal {
+    font-weight: normal;
+}
+.ts-font-weight__light {
+    font-weight: lighter;
+}
+.ts-font-weight__bold {
+    font-weight: bold;
+}
+.ts-text-small {
+    font-size: 0.8125rem !important;
+}
+.ts-xs-text-center {
+} /* populated by media queries below */
+
+/* Title helper */
+.ts-title h5 {
+    font-weight: normal;
+    opacity: 0.5;
+}
+
+/* -- Utilities ------------------------------------------------------------------------------------------------------ */
+
+.ts-element {
+    position: relative;
+}
+.ts-flip-x {
+    transform: scaleY(-1);
+}
+.ts-flip-y {
+    transform: scaleX(-1);
+}
+.ts-has-overlay {
+    position: relative;
+}
+
+.ts-has-overlay::after {
+    background-color: #000;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.ts-social-icons {
+    font-size: 120%;
+}
+.ts-social-icons a {
+    padding: 0.125rem 0.25rem;
+    color: #9e9e9e;
+}
+
+.ts-has-talk-arrow {
+    position: relative;
+}
+/* triangolino fumetto rimosso */
+
+/* -- Z-Index -------------------------------------------------------------------------------------------------------- */
+
+.ts-z-index__-1 {
+    z-index: -1 !important;
+}
+.ts-z-index__0 {
+    z-index: 0 !important;
+}
+.ts-z-index__1 {
+    z-index: 1 !important;
+}
+.ts-z-index__2 {
+    z-index: 2 !important;
+}
+.ts-z-index__1000 {
+    z-index: 1000 !important;
+}
+
+/* =====================================================================================================================
+   C. COMPONENTS
+   ===================================================================================================================== */
+
+/* -- Block ---------------------------------------------------------------------------------------------------------- */
+
+section {
+    position: relative;
+}
+
+.ts-block {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+    position: relative;
+}
+
+/* ~30% less vertical padding than .ts-block */
+.ts-block-sm {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    position: relative;
+}
+
+.ts-block-inside {
+    padding: 1.25rem;
+    position: relative;
+}
+
+/* Partners tagline */
+.ts-partners-tagline {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    opacity: 1;
+}
+
+/* -- Blockquote ----------------------------------------------------------------------------------------------------- */
+
+blockquote {
+    font-size: 1.125rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+blockquote [class*="ts-circle"] {
+    box-shadow: var(
+        --shadow-lg,
+        0.375rem 0.3125rem 1.5625rem rgba(0, 0, 0, 0.2)
+    );
+    position: relative;
+    z-index: 2;
+    margin-top: 1rem;
+}
+
+blockquote p {
+    background-color: #f1f1f1;
+    border-radius: 0.25rem;
+    margin-top: -2.5rem;
+    padding: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+blockquote p::after {
+    border-color: #f1f1f1 transparent transparent transparent;
+    border-style: solid;
+    border-width: 0.8125rem 0.8125rem 0 0.8125rem;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -0.8125rem;
+}
+
+blockquote h4 {
+    margin-bottom: 0.3125rem;
+}
+blockquote h6 {
+    opacity: 0.5;
+}
+
+.blockquote-footer {
+    color: inherit;
+}
+.blockquote-footer::before {
+    display: none;
+}
+
+/* Owl carousel blockquote animation */
+.ts-carousel-blockquote .owl-item figure,
+.ts-carousel-blockquote .owl-item p,
+.ts-carousel-blockquote .owl-item .blockquote-footer {
+    opacity: 0;
+    transition: var(--duration-normal) ease;
+    transform: translateY(0.625rem);
+}
+
+.ts-carousel-blockquote .owl-item.active figure,
+.ts-carousel-blockquote .owl-item.active p,
+.ts-carousel-blockquote .owl-item.active .blockquote-footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ts-carousel-blockquote .owl-item.active p {
+    transition-delay: 0.1s;
+}
+.ts-carousel-blockquote .owl-item.active .blockquote-footer {
+    transition-delay: 0.2s;
+}
+
+/* -- Box ------------------------------------------------------------------------------------------------------------ */
+
+.ts-box {
+    background-color: var(--color-white);
+    border-radius: 0.25rem;
+    margin-bottom: var(--space-lg);
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+    padding: 1.5625rem;
+}
+
+/* -- Buttons -------------------------------------------------------------------------------------------------------- */
+
+.btn {
+    border-radius: 0;
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+    position: relative;
+    outline: none !important;
+    text-transform: uppercase;
+}
+
+.btn:hover .fa-arrow-right {
+    transform: translateX(0.5rem);
+}
+
+.btn.ts-btn-arrow::after {
+    content: "\f061";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.625rem;
+    margin-left: 0.75rem;
+    position: relative;
+    top: -0.0625rem;
+    vertical-align: middle;
+}
+
+.btn span {
+    transition: var(--duration-fast) ease;
+}
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+}
+.btn-sm {
+    font-size: 0.8125rem;
+    padding: 0.375rem 1rem;
+}
+.btn-xs {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.125rem 0.6875rem;
+    text-transform: uppercase;
+}
+
+[class*="btn-outline-"] {
+    box-shadow: none;
+}
+
+/* Primary button */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-ink-dark);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-ink-dark);
+    box-shadow: none;
+}
+
+/* Button loading states */
+.btn .status {
+    bottom: 0;
+    height: 1.375rem;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5rem;
+}
+.btn .status .spinner {
+    left: 0.3125rem;
+    transition: var(--duration-fast) ease;
+    top: 0.1875rem;
+    position: absolute;
+    opacity: 0;
+}
+.btn .status .status-icon {
+    border-radius: 50%;
+    left: 0;
+    opacity: 0;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.4375rem;
+    position: relative;
+    transition: var(--duration-fast) ease;
+    z-index: 1;
+    transform: scale(0);
+}
+.btn .status .status-icon.valid {
+    background-color: var(--green);
+}
+.btn .status .status-icon.invalid {
+    background-color: var(--red);
+}
+.btn.processing span {
+    opacity: 0.2;
+}
+.btn.processing .spinner {
+    opacity: 1;
+}
+.btn.done .ts-spinner {
+    opacity: 0;
+}
+.btn.done .status-icon {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Slide-effect button */
+.ts-btn-effect {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.ts-btn-effect .ts-visible {
+    transform: translateX(0);
+    transition: var(--duration-fast) ease;
+}
+.ts-btn-effect .ts-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: var(--duration-fast) ease;
+}
+.ts-btn-effect:hover .ts-visible {
+    transform: translateX(100%);
+}
+.ts-btn-effect:hover .ts-hidden {
+    transform: translateX(0);
+}
+
+/* Down-arrow icon color override */
+.fa-arrow-down.text-white {
+    color: var(--color-ink-dark) !important;
+}
+
+/* Arrow link effect */
+.ts-link-arrow-effect {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-white);
+    position: relative;
+    padding-right: 2rem;
+}
+
+.ts-link-arrow-effect::before {
+    animation: ts-link-arrow-effect-animation-out var(--duration-fast)
+        var(--ease-standard) forwards;
+    background-color: var(--color-primary);
+    bottom: 0;
+    height: 0.125rem;
+    margin: auto;
+    left: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: scaleX(0.2);
+    transform-origin: left center;
+    z-index: -1;
+}
+
+.ts-link-arrow-effect span {
+    position: relative;
+    transform: translateX(-200%);
+    display: inline-block;
+    transition: 0.6s var(--ease-standard);
+}
+
+@keyframes ts-link-arrow-effect-animation-in {
+    0% {
+        transform-origin: left center;
+        transform: scaleX(0.2);
+    }
+    70% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+    71% {
+        transform-origin: right center;
+    }
+    100% {
+        transform-origin: right center;
+        transform: scaleX(0.2);
+    }
+}
+
+@keyframes ts-link-arrow-effect-animation-out {
+    0% {
+        transform-origin: right center;
+        transform: scaleX(0.2);
+    }
+    70% {
+        transform-origin: right center;
+    }
+    71% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+    100% {
+        transform-origin: left center;
+        transform: scaleX(0.2);
+    }
+}
+
+/* -- Card / Gallery ------------------------------------------------------------------------------------------------- */
+
+.card {
+    backface-visibility: hidden;
+    border: none;
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+}
+
+.card-columns .card {
+    margin-bottom: 1.25rem;
+}
+.card-body,
+.card-footer,
+.card-header {
+    padding: 1.5625rem;
+}
+.ts-cards-same-height > div[class*="col-"] {
+    display: flex;
+}
+.ts-cards-same-height > div[class*="col-"] .card {
+    width: 100%;
+}
+.ts-card__flat {
+    border-radius: 0;
+    box-shadow: none;
+}
+.ts-card__flat .card-footer {
+    background-color: transparent;
+    border: none;
+}
+
+/* Gallery */
+.ts-gallery {
+    position: relative;
+}
+
+.ts-gallery .ts-gallery__item {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.ts-gallery .ts-gallery__item .ts-gallery__item-description {
+    background-color: rgba(0, 0, 0, 0.8);
+    backface-visibility: hidden;
+    color: var(--color-white);
+    position: absolute;
+    inset: 0;
+    width: 101%;
+    height: 101%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    transform: scale(1.2);
+    transition: var(--duration-normal) ease;
+    opacity: 0;
+}
+
+.ts-gallery .ts-gallery__item:hover .ts-gallery__item-description {
+    transform: scale(1);
+    opacity: 1;
+}
+.ts-gallery .ts-gallery__item:hover img {
+    transform: scale(1.3) rotate(-9deg);
+}
+.ts-gallery .ts-gallery__item h4 {
+    margin-bottom: 0;
+}
+
+.ts-gallery .ts-gallery__item img {
+    border-radius: 0;
+    transform: scale(1) rotate(0deg);
+    backface-visibility: hidden;
+    transition: 0.8s ease;
+}
+
+/* -- Circle --------------------------------------------------------------------------------------------------------- */
+
+%circle {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ts-circle__xs {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 3rem;
+    flex: 0 0 3rem;
+    line-height: 3rem;
+    width: 3rem;
+}
+.ts-circle__sm {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 4.375rem;
+    flex: 0 0 4.375rem;
+    line-height: 4.375rem;
+    width: 4.375rem;
+}
+.ts-circle__md {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 6.25rem;
+    flex: 0 0 6.25rem;
+    line-height: 6.25rem;
+    width: 6.25rem;
+}
+.ts-circle__lg {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 8.125rem;
+    flex: 0 0 8.125rem;
+    line-height: 8.125rem;
+    width: 8.125rem;
+}
+.ts-circle__xl {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 10rem;
+    flex: 0 0 10rem;
+    line-height: 10rem;
+    width: 10rem;
+}
+.ts-circle__xxl {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: 15.625rem;
+    flex: 0 0 15.625rem;
+    line-height: 15.625rem;
+    width: 15.625rem;
+}
+
+/* -- Forms ---------------------------------------------------------------------------------------------------------- */
+
+form.ts-labels-inside-input .form-group,
+.ts-form.ts-labels-inside-input .form-group {
+    position: relative;
+}
+
+form.ts-labels-inside-input .form-group label,
+.ts-form.ts-labels-inside-input .form-group label {
+    line-height: 2.625rem;
+    left: 0.8125rem;
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: var(--duration-fast) ease;
+}
+
+form.ts-labels-inside-input .form-group label.focused,
+.ts-form.ts-labels-inside-input .form-group label.focused {
+    top: -2.1875rem;
+    left: 0;
+    font-size: 0.75rem;
+    opacity: 1;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    color: var(--color-white);
+    padding: 0.5625rem 0.75rem;
+    transition: background-color var(--duration-fast) ease;
+}
+
+.form-control:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+    color: var(--color-white);
+}
+.form-group {
+    margin-bottom: 1.5625rem;
+}
+.form-group label {
+    font-size: 0.8125rem;
+}
+
+.ts-input__static {
+    pointer-events: none;
+    box-shadow: none;
+}
+
+.ts-inputs__transparent input,
+.ts-inputs__transparent textarea {
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+.ts-inputs__transparent input:active,
+.ts-inputs__transparent input:focus,
+.ts-inputs__transparent textarea:active,
+.ts-inputs__transparent textarea:focus {
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+/* -- HR ------------------------------------------------------------------------------------------------------------- */
+
+.ts-hr-light {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* -- Hero ----------------------------------------------------------------------------------------------------------- */
+
+#ts-hero {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#ts-hero .ts-background-image {
+    background-position: top center;
+}
+
+/* Hero animated entrance */
+#ts-hero.ts-animate-hero-items h1:not(.ts-bubble-border) {
+    opacity: 0;
+    transition:
+        opacity var(--duration-slow) cubic-bezier(0.03, 0.18, 0.05, 1.01),
+        transform var(--duration-slow) cubic-bezier(0.03, 0.18, 0.05, 1.01);
+    transform: translateY(1.25rem);
+}
+
+#ts-hero.ts-animate-hero-items .ts-background {
+    opacity: 0;
+    transition: opacity var(--duration-slow) ease 1.3s;
+}
+
+#ts-hero.ts-animate-hero-items .ts-social-icons {
+    opacity: 0;
+    transition:
+        opacity var(--duration-slow) ease 1.2s,
+        transform var(--duration-slow) ease 1.2s;
+    transform: translateX(0.3125rem) rotate(0.002deg);
+}
+
+body.loading-done #ts-hero.ts-animate-hero-items .ts-background {
+    opacity: 1;
+}
+body.loading-done #ts-hero.ts-animate-hero-items h1:not(.ts-bubble-border) {
+    opacity: 1;
+    transform: translateY(0);
+}
+body.loading-done #ts-hero.ts-animate-hero-items .ts-social-icons {
+    opacity: 1;
+    transform: translateX(0) rotate(0.002deg);
+}
+
+/* Hero owl navigation */
+#ts-hero .owl-prev,
+#ts-hero .owl-next {
+    background-color: transparent;
+    border: 0.125rem solid rgba(255, 255, 255, 0.8);
+}
+
+#ts-hero .owl-prev::after,
+#ts-hero .owl-next::after {
+    line-height: 2.25rem;
+}
+
+.ts-hero-slider,
+.ts-hero-slider div {
+    height: 100% !important;
+}
+
+/* -- Item ----------------------------------------------------------------------------------------------------------- */
+
+.ts-item {
+    height: 100%;
+    padding-bottom: 4rem;
+}
+
+.ts-item:hover .icon,
+.ts-item:hover h4,
+.ts-item:hover p {
+    transform: translateY(-0.625rem);
+}
+
+.ts-item:hover .ts-link-arrow-effect {
+    color: var(--color-white);
+}
+
+.ts-item:hover .ts-link-arrow-effect::before {
+    animation: ts-link-arrow-effect-animation-in var(--duration-fast)
+        var(--ease-standard) forwards;
+}
+
+.ts-item:hover .ts-link-arrow-effect span {
+    transform: translateX(0);
+}
+
+.ts-item .icon,
+.ts-item h4,
+.ts-item p {
+    transition: var(--duration-fast) ease;
+    transform: translateY(0);
+}
+
+.ts-item h4 {
+    transition-delay: 0.05s;
+    color: var(--color-primary);
+}
+.ts-item p {
+    transition-delay: 0.1s;
+}
+
+.ts-item-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.ts-item-header {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.ts-item-body {
+    flex: 1 1 auto;
+}
+/* Read More temporaneamente disabilitato — rimuovere questo blocco per ripristinarlo */
+.ts-item-footer {
+    display: none;
+}
+
+.ts-item-header .icon {
+    position: relative;
+    display: inline-block;
+}
+
+.ts-item-header .icon .step {
+    background-color: var(--color-primary);
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    color: var(--color-white);
+    font-weight: 600;
+    line-height: 2rem;
+    right: 0;
+    top: 0;
+    height: 2rem;
+    position: absolute;
+    text-align: center;
+    width: 2rem;
+}
+
+/* -- List ----------------------------------------------------------------------------------------------------------- */
+
+ul.ts-list-colored-bullets li::before {
+    content: "•";
+    color: var(--color-primary);
+    vertical-align: middle;
+    font-size: 1.75rem;
+    padding-right: 0.75rem;
+}
+
+/* -- Loading Screen ------------------------------------------------------------------------------------------------- */
+
+body.has-loading-screen::before {
+    background-color: #000;
+    content: "";
+    height: 100%;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: width 1.5s ease;
+    opacity: 1;
+}
+
+body.has-loading-screen::after {
+    content: url("../../assets/img/loading.svg");
+    height: 2.5rem;
+    width: 2.5rem;
+    position: fixed;
+    margin: auto;
+    inset: 0;
+    opacity: 1;
+    transform: scale(1);
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+    z-index: 10000;
+}
+
+body.has-loading-screen.loading-done::before {
+    width: 0;
+}
+body.has-loading-screen.loading-done::after {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* -- Map ------------------------------------------------------------------------------------------------------------ */
+
+.map {
+    min-height: 12.5rem;
+}
+.map a[href^="http://maps.google.com/maps"],
+.map a[href^="https://maps.google.com/maps"] {
+    display: none !important;
+}
+.map .gmnoprint a,
+.map .gmnoprint span,
+.map .gm-style-cc {
+    display: none;
+}
+
+/* -- Bubble Border / Rotating Title --------------------------------------------------------------------------------- */
+
+.ts-bubble-border {
+    display: inline-block;
+    position: relative;
+    transition: var(--duration-normal) ease;
+}
+
+.ts-bubble-border i {
+    background-color: var(--color-white);
+    position: absolute;
+    transition: 0.2s ease-in;
+}
+
+.ts-bubble-border i:nth-child(1) {
+    top: 0;
+    left: 0;
+    height: 0.1875rem;
+    width: 0%;
+}
+
+.ts-bubble-border i:nth-child(2) {
+    height: 0%;
+    right: 0;
+    top: 0;
+    width: 0.1875rem;
+    transition-delay: 0.2s;
+}
+
+.ts-bubble-border i:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    height: 0.1875rem;
+    width: 0%;
+    transition-delay: 0.4s;
+}
+
+.ts-bubble-border i:nth-child(4) {
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    width: 0.1875rem;
+    transition-delay: 0.6s;
+}
+
+.ts-bubble-border i:nth-child(5) {
+    display: none; /* triangolino fumetto rimosso */
+}
+
+/* Rotating text inside bubble border */
+.ts-bubble-border .ts-title-rotate {
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+.ts-bubble-border .ts-title-rotate span {
+    padding: 1.5rem 2.25rem;
+    display: inline-block;
+    position: absolute;
+    font-family: var(--font-body); /* Roboto */
+    font-weight: 400;
+    transition: 0.8s ease 0.3s;
+    transform: translateY(-0.3125rem) rotate(0.02deg);
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.ts-bubble-border .ts-title-rotate span.active {
+    opacity: 0;
+    transform: translateY(-0.3125rem) rotate(0.02deg);
+}
+
+.ts-bubble-border.in .ts-title-rotate span.active {
+    opacity: 1;
+    transform: translateY(0) rotate(0.02deg);
+}
+
+.ts-bubble-border.in .ts-title-rotate span.out {
+    opacity: 0;
+    transform: translateY(0.3125rem) rotate(0.02deg);
+}
+
+/* Border lines animate in */
+.ts-bubble-border.in i:nth-child(1),
+.ts-bubble-border.in i:nth-child(3) {
+    width: 100%;
+}
+
+.ts-bubble-border.in i:nth-child(2),
+.ts-bubble-border.in i:nth-child(4) {
+    height: 100%;
+}
+
+/* Bubble border in content / footer adds padding */
+#ts-content .ts-bubble-border,
+#ts-footer .ts-bubble-border {
+    padding: 1.5rem 2.25rem;
+}
+
+/* -- Navbar --------------------------------------------------------------------------------------------------------- */
+
+.navbar-brand {
+    display: none !important;
+}
+
+.navbar {
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--duration-fast) ease;
+    text-transform: uppercase;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar .ts-background {
+    transition: var(--duration-slow) ease;
+}
+
+.nav-link {
+    position: relative;
+    color: inherit;
+}
+
+.nav-link::after {
+    border-top: 0.1875rem solid var(--color-primary);
+    content: "";
+    height: 0.1875rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity var(--duration-fast) ease;
+}
+
+/* Active state: linea gialla visibile + testo scuro */
+.nav-link.active::after {
+    opacity: 1;
+}
+.navbar-light .nav-link.active,
+.navbar-light .nav-item.active .nav-link {
+    color: #191919 !important;
+}
+
+/* Hover */
+.navbar-light .nav-link:hover {
+    color: #191919 !important;
+}
+.nav-link:hover::after {
+    opacity: 0.4;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+[class*="navbar-expand"] .navbar-nav .nav-link {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+/* -- Page ----------------------------------------------------------------------------------------------------------- */
+
+.ts-page-wrapper {
+    overflow: hidden;
+}
+
+/* -- Partners ------------------------------------------------------------------------------------------------------- */
+
+.ts-partners a {
+    display: block;
+    padding: 0.625rem 0.3125rem;
+}
+
+/* -- Plugins -------------------------------------------------------------------------------------------------------- */
+
+.tv-site-widget {
+    border: none !important;
+}
+iframe div {
+    border: none;
+}
+
+/* -- Progress ------------------------------------------------------------------------------------------------------- */
+
+.progress-wrapper {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+/* Barra Bootstrap — altezza fissa, overflow visibile */
+.progress-wrapper .progress {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+    height: var(--progress-h);
+    overflow: visible;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 1.4rem; /* spazio sopra per la % label */
+}
+
+.progress-wrapper .progress-bar {
+    background-color: var(--color-primary);
+    height: 100%;
+    transition: width var(--duration-slow) ease;
+}
+
+/* Etichetta % — subito sopra la barra, quasi appiccicata */
+.progress-wrapper .ts-progress-value {
+    border: 0.125rem solid var(--color-white);
+    padding: 0.1rem 0.35rem;
+    position: absolute;
+    bottom: calc(100% + 0.25rem); /* 4px sopra la barra */
+    left: 0;
+    transform: translateX(-50%);
+    transition: left var(--duration-slow) ease;
+    white-space: nowrap;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    z-index: 2;
+}
+
+/* Titolo sotto la barra */
+.progress-wrapper .ts-progress-title {
+    display: block;
+    margin: 0.4rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* -- Promo Numbers -------------------------------------------------------------------------------------------------- */
+
+.ts-promo-number {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.ts-promo-number figure {
+    color: var(--color-primary);
+    font-weight: 400;
+}
+
+/* -- Select --------------------------------------------------------------------------------------------------------- */
+
+select.form-control {
+    box-shadow: 0.125rem 0.1875rem 0.9375rem rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2.8125rem !important;
+    margin-top: -0.125rem;
+    padding: 0.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 0.0625rem;
+    text-overflow: "";
+}
+
+select.form-control:focus,
+select.form-control:hover {
+    box-shadow: 0.375rem 0.3125rem 1.5625rem rgba(0, 0, 0, 0.2);
+}
+select::-ms-expand {
+    display: none;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::before {
+    position: absolute;
+    display: inline-block;
+    font-weight: 900;
+    text-rendering: auto;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+    right: 0.9375rem;
+    height: 1.875rem;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f0dd";
+}
+
+/* -- Slider --------------------------------------------------------------------------------------------------------- */
+
+.ts-slider,
+.ts-slider div {
+    height: 100% !important;
+}
+
+/* -- Tabs ----------------------------------------------------------------------------------------------------------- */
+
+.nav-tabs {
+    border-bottom: none;
+}
+.nav-tabs h4 {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1875rem solid transparent;
+    margin-inline: 0.9375rem;
+    padding-inline: 0;
+    color: inherit;
+    opacity: 0.5;
+}
+
+.nav-tabs .nav-link.active {
+    color: #191919;
+    background-color: transparent;
+    border-bottom-color: var(--color-primary);
+    opacity: 1;
+}
+
+/* =====================================================================================================================
+   D. PLUGINS
+   ===================================================================================================================== */
+
+/* -- Magnific Popup ------------------------------------------------------------------------------------------------- */
+
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    background-color: #000;
+    transition: opacity 0.15s ease-out;
+}
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    transition: opacity 0.15s ease-out;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
+
+/* -- Owl Carousel --------------------------------------------------------------------------------------------------- */
+
+.owl-carousel .owl-stage,
+.owl-carousel .owl-stage-outer,
+.owl-carousel .owl-item {
+    height: 100%;
+}
+
+.owl-carousel .owl-dots {
+    text-align: center;
+}
+.owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+    padding: 0.3125rem;
+}
+
+.owl-carousel .owl-dots .owl-dot span {
+    background-color: var(--color-white);
+    border-radius: 50%;
+    display: inline-block;
+    height: 0.625rem;
+    opacity: 0.2;
+    transition: var(--duration-fast) ease;
+    width: 0.625rem;
+}
+
+.owl-carousel .owl-dots .owl-dot.active span {
+    background-color: var(--color-primary);
+    opacity: 1;
+}
+.owl-carousel .owl-dots .owl-dot:hover span {
+    background-color: var(--color-white);
+    opacity: 0.7;
+}
+
+.owl-carousel .owl-nav {
+    position: absolute;
+    top: -1.25rem;
+    bottom: 0;
+    height: 0;
+    margin: auto;
+    width: 100%;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition: var(--duration-fast) ease;
+    width: 2.5rem;
+}
+
+.owl-carousel .owl-nav .owl-prev {
+    left: 0;
+}
+.owl-carousel .owl-nav .owl-next {
+    right: 0;
+}
+
+/* =====================================================================================================================
+   E. TEMPLATE SPECIFIC
+   ===================================================================================================================== */
+
+/* -- Footer --------------------------------------------------------------------------------------------------------- */
+
+#ts-footer .ts-box {
+    margin-top: -3.125rem;
+}
+
+/* -- Tabs presentation ---------------------------------------------------------------------------------------------- */
+
+.ts-tabs-presentation .tab-pane img {
+    opacity: 0;
+    transition: var(--duration-fast) ease;
+    transform: translateY(1.25rem);
+}
+
+.ts-tabs-presentation .tab-pane.show.active img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -- Story ---------------------------------------------------------------------------------------------------------- */
+
+.ts-story {
+    padding: 1.25rem;
+    padding-left: 5rem;
+    position: relative;
+}
+
+.ts-story .ts-background,
+.ts-story .ts-background-image {
+    transition: var(--duration-fast) ease;
+}
+
+.ts-story figure {
+    background-color: var(--color-white);
+    color: rgba(25, 25, 25, 0.2);
+    font-weight: 500;
+    position: absolute;
+    top: -0.375rem;
+    left: 3rem;
+    padding: 1rem;
+    transform: rotate(-90deg);
+    transform-origin: bottom;
+}
+
+/* =====================================================================================================================
+   F. RESPONSIVE
+   ===================================================================================================================== */
+
+/* XS – phones portrait (<576px) */
+@media (max-width: 35.9375rem) {
+    [class*="ts-column-count-"] {
+        column-count: 1;
+    }
+    .ts-xs-text-center {
+        text-align: center !important;
+    }
+    .ts-title {
+        margin-bottom: 1.875rem;
+    }
+    h1,
+    .ts-h1 {
+        margin-bottom: 1.25rem;
+    }
+    .ts-promo-number figure {
+        font-size: 2.25rem;
+    }
+}
+
+/* SM – phones landscape (576–767px) */
+@media (min-width: 36rem) and (max-width: 47.9375rem) {
+    html {
+        font-size: 85%;
+    }
+    h1,
+    .ts-h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.875rem;
+    }
+    h2,
+    .ts-h2 {
+        font-size: 1.625rem;
+    }
+    h3,
+    .ts-h3 {
+        font-size: 1.25rem;
+    }
+    .ts-title {
+        margin-bottom: 3.125rem;
+    }
+    .ts-column-count-sm-1 {
+        column-count: 1;
+    }
+    .ts-column-count-sm-2 {
+        column-count: 2;
+    }
+    .ts-column-count-sm-3 {
+        column-count: 3;
+    }
+    .ts-column-count-sm-4 {
+        column-count: 4;
+    }
+    .ts-promo-number figure {
+        font-size: 2.375rem;
+    }
+
+    /* Navbar SM */
+    .navbar.navbar-expand-sm .navbar-nav {
+        align-items: center;
+    }
+    .navbar.navbar-expand-sm .navbar-nav .nav-link {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+    }
+    .navbar.navbar-expand-sm .ts-background {
+        opacity: 0;
+    }
+
+    /* Owl centered */
+    .ts-carousel-centered .owl-nav .owl-next {
+        right: 2.5rem;
+    }
+    .ts-carousel-centered .owl-nav .owl-prev {
+        left: 2.5rem;
+    }
+
+    /* Video background */
+    .ts-background {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .ts-background-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+    .ts-video-overlay {
+        position: absolute;
+        inset: 0;
+        background: var(--color-overlay);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+/* MD – tablets (768–991px) */
+@media (min-width: 48rem) and (max-width: 61.9375rem) {
+    html {
+        font-size: 90%;
+    }
+    h1,
+    .ts-h1 {
+        font-size: 3rem;
+        margin-bottom: 1.875rem;
+    }
+    h2,
+    .ts-h2 {
+        font-size: 1.875rem;
+    }
+    h3,
+    .ts-h3 {
+        font-size: 1.375rem;
+    }
+    h4,
+    .ts-h4 {
+        font-size: 1.5rem;
+    }
+    .ts-title {
+        margin-bottom: 3.125rem;
+    }
+    .ts-block-inside {
+        padding: 2.5rem;
+    }
+    .ts-column-count-md-1 {
+        column-count: 1;
+    }
+    .ts-column-count-md-2 {
+        column-count: 2;
+    }
+    .ts-column-count-md-3 {
+        column-count: 3;
+    }
+    .ts-column-count-md-4 {
+        column-count: 4;
+    }
+    .ts-promo-number figure {
+        font-size: 2.5rem;
+    }
+    .ts-card__image {
+        height: 15.625rem;
+    }
+
+    .navbar.navbar-expand-md .navbar-nav {
+        align-items: center;
+    }
+    .navbar.navbar-expand-md .navbar-nav .nav-link {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+    }
+    .navbar.navbar-expand-md .ts-background {
+        opacity: 0;
+    }
+}
+
+/* LG – laptops (992–1199px) */
+@media (min-width: 62rem) and (max-width: 74.9375rem) {
+    html {
+        font-size: 95%;
+    }
+    h1,
+    .ts-h1 {
+        font-size: 3.125rem;
+        margin-bottom: 2.5rem;
+    }
+    h2,
+    .ts-h2 {
+        font-size: 2rem;
+    }
+    h3,
+    .ts-h3 {
+        font-size: 1.375rem;
+    }
+    h4,
+    .ts-h4 {
+        font-size: 1.5rem;
+    }
+    .ts-title {
+        margin-bottom: 5rem;
+    }
+    .ts-block {
+        padding-top: 6.25rem;
+        padding-bottom: 6.25rem;
+    }
+    .ts-block-sm {
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+    }
+    .ts-block-inside {
+        padding: 3.75rem;
+    }
+    .ts-card__image {
+        height: 12.5rem;
+    }
+    .ts-column-count-lg-1 {
+        column-count: 1;
+    }
+    .ts-column-count-lg-2 {
+        column-count: 2;
+    }
+    .ts-column-count-lg-3 {
+        column-count: 3;
+    }
+    .ts-column-count-lg-4 {
+        column-count: 4;
+    }
+    .ts-promo-number figure {
+        font-size: 2.75rem;
+    }
+
+    .navbar.navbar-expand-lg .navbar-nav {
+        align-items: center;
+    }
+    .navbar.navbar-expand-lg .navbar-nav .nav-link {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+    }
+    .navbar.navbar-expand-lg .ts-background {
+        opacity: 0;
+    }
+    .floated {
+        position: absolute;
+    }
+}
+
+/* XL – desktops (≥1200px) */
+@media (min-width: 75rem) {
+    html {
+        font-size: 100%;
+    }
+    h1,
+    .ts-h1 {
+        font-size: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+    h2,
+    .ts-h2 {
+        font-size: 2.25rem;
+    }
+    h3,
+    .ts-h3 {
+        font-size: 1.875rem;
+    }
+    h4,
+    .ts-h4 {
+        font-size: 1.5rem;
+    }
+    .ts-title {
+        margin-bottom: 5rem;
+    }
+    .ts-block {
+        padding-top: var(--space-3xl);
+        padding-bottom: var(--space-3xl);
+    }
+    .ts-block-sm {
+        padding-top: 5.688rem;
+        padding-bottom: 5.688rem;
+    }
+    .ts-block-inside {
+        padding: 3.75rem;
+    }
+    .ts-card__image {
+        height: 15.625rem;
+    }
+    .ts-column-count-xl-1 {
+        column-count: 1;
+    }
+    .ts-column-count-xl-2 {
+        column-count: 2;
+    }
+    .ts-column-count-xl-3 {
+        column-count: 3;
+    }
+    .ts-column-count-xl-4 {
+        column-count: 4;
+    }
+    .ts-promo-number figure {
+        font-size: 3.75rem;
+    }
+
+    .navbar.navbar-expand-xl .navbar-nav {
+        align-items: center;
+    }
+    .navbar.navbar-expand-xl .navbar-nav .nav-link {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+    }
+    .navbar.navbar-expand-xl .ts-background {
+        opacity: 0;
+    }
+
+    .navbar.navbar-expand-lg .navbar-nav {
+        align-items: center;
+    }
+    .navbar.navbar-expand-lg .navbar-nav .nav-link {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: none;
+    }
+    .navbar.navbar-expand-lg .ts-background {
+        opacity: 0;
+    }
+    .floated {
+        position: absolute;
+    }
+
+    .ts-carousel-centered .owl-nav .owl-next {
+        right: 5rem;
+    }
+    .ts-carousel-centered .owl-nav .owl-prev {
+        left: 5rem;
+    }
+    .floated form {
+        padding: 2.5rem 5rem;
+    }
+}
+
+/* Portrait phones – h4 size */
+@media (max-width: 47.9375rem) {
+    h4,
+    .ts-h4 {
+        font-size: 1.125rem;
+    }
+}

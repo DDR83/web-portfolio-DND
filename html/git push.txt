@@ -4,5 +4,5 @@ git commit -m "video popup: sostituito Magnific con overlay custom affidabile"
 git push
 
 git add .
-git commit -m "descrizione modifiche"
+git commit -m "portfolio aggiornato"
 git push

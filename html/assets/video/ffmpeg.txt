@@ -1,1 +1,0 @@
-ffmpeg -i VIDEO-ORIGINALE.mp4 -ss 00:00:02 -t 00:00:10 -vcodec libx265 -crf 32 -preset fast -an -vf scale=640:-2 NOME-preview.mp4 -ss 00:00:03 -vframes 1 -vf scale=800:-2 ../thumbs/NOME-thumb.jpg -an -vcodec libx265 -crf 23 -preset medium -vf scale=1920:-2 NOME-full.mp4

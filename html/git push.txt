@@ -1,0 +1,8 @@
+cd D:\sito\web-portfolio-DND
+git add html/index.html
+git commit -m "video popup: sostituito Magnific con overlay custom affidabile"
+git push
+
+git add .
+git commit -m "descrizione modifiche"
+git push

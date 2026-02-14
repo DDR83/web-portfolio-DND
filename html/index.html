@@ -1465,35 +1465,85 @@
             })();
         </script>
 
-        <!-- Magnific Popup initialization -->
+        <!-- Custom Video Popup (più affidabile di Magnific per MP4 locali) -->
+        <style>
+            .video-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 99999;
+                justify-content: center;
+                align-items: center;
+            }
+            .video-overlay.active {
+                display: flex;
+            }
+            .video-container {
+                position: relative;
+                width: 90%;
+                max-width: 1200px;
+            }
+            .video-close {
+                position: absolute;
+                top: -40px;
+                right: 0;
+                color: #fff;
+                font-size: 30px;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 10px;
+                z-index: 100000;
+            }
+            .video-close:hover {
+                color: var(--color-primary);
+            }
+            .video-overlay video {
+                width: 100%;
+                background: #000;
+            }
+        </style>
+        
+        <div class="video-overlay" id="videoOverlay">
+            <div class="video-container">
+                <button class="video-close" onclick="closeVideoPopup()">&times;</button>
+                <video id="videoPlayer" controls autoplay></video>
+            </div>
+        </div>
+
         <script>
             $(document).ready(function() {
-                // Popup per video MP4 locali - gestione manuale click
+                // Popup per video MP4 - custom overlay affidabile
                 $('.popup-video').on('click', function(e) {
                     e.preventDefault();
                     var videoSrc = $(this).attr('href');
+                    var videoPlayer = document.getElementById('videoPlayer');
+                    var overlay = document.getElementById('videoOverlay');
                     
-                    $.magnificPopup.open({
-                        items: {
-                            src: '<div class="mfp-video-wrapper" style="max-width:1200px;margin:0 auto;"><video controls autoplay style="width:100%;background:#000;"><source src="' + videoSrc + '" type="video/mp4"></video></div>',
-                            type: 'inline'
-                        },
-                        mainClass: 'mfp-fade',
-                        removalDelay: 160,
-                        fixedContentPos: true,
-                        callbacks: {
-                            close: function() {
-                                // Stop video when closing
-                                $('video').each(function() {
-                                    this.pause();
-                                    this.currentTime = 0;
-                                });
-                            }
-                        }
-                    });
+                    videoPlayer.src = videoSrc;
+                    overlay.classList.add('active');
+                    videoPlayer.play();
+                });
+                
+                // Chiudi con ESC
+                $(document).on('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeVideoPopup();
+                    }
+                });
+                
+                // Chiudi cliccando fuori dal video
+                $('#videoOverlay').on('click', function(e) {
+                    if (e.target === this) {
+                        closeVideoPopup();
+                    }
                 });
 
-                // Popup per immagini
+                // Popup per immagini (Magnific Popup funziona bene per immagini)
                 $('.popup-image').magnificPopup({
                     type: 'image',
                     mainClass: 'mfp-fade',
@@ -1507,6 +1557,15 @@
                     }
                 });
             });
+            
+            function closeVideoPopup() {
+                var videoPlayer = document.getElementById('videoPlayer');
+                var overlay = document.getElementById('videoOverlay');
+                
+                videoPlayer.pause();
+                videoPlayer.src = '';
+                overlay.classList.remove('active');
+            }
         </script>
     </body>
 </html>

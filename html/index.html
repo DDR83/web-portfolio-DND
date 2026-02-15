@@ -134,9 +134,7 @@
                                 style="color: #131d36"
                             ></i>
                         </span>
-                        <span
-                            class="ts-hidden ts-circle__sm rounded-0"
-                        >
+                        <span class="ts-hidden ts-circle__sm rounded-0">
                             <i
                                 class="fa fa-arrow-down"
                                 style="color: #d7ff00"
@@ -535,8 +533,11 @@
                                     ensure efficiency and quality. I combine 3D,
                                     animation, video, and data-driven visuals
                                     with a background in architecture and
-                                    product design. My job is to turn your ideas into visuals, or help you build strategies to reach your goals. Whether working independently or
-                                    collaborating with teams of any size.
+                                    product design. My job is to turn your ideas
+                                    into visuals, or help you build strategies
+                                    to reach your goals. Whether working
+                                    independently or collaborating with teams of
+                                    any size.
                                 </p>
                                 <dl>
                                     <dt>Name:</dt>
@@ -545,7 +546,13 @@
                                     <dd>+39 393 1701767</dd>
                                     <dt>Email:</dt>
                                     <dd>
-                                        <a href="/cdn-cgi/l/email-protection#741d1a121b34101d101d11061a105a171b19"><span class="__cf_email__" data-cfemail="573e39313817333e333e322539337934383a">[email&#160;protected]</span></a
+                                        <a
+                                            href="/cdn-cgi/l/email-protection#741d1a121b34101d101d11061a105a171b19"
+                                            ><span
+                                                class="__cf_email__"
+                                                data-cfemail="573e39313817333e333e322539337934383a"
+                                                >[email&#160;protected]</span
+                                            ></a
                                         >
                                     </dd>
                                 </dl>
@@ -968,7 +975,7 @@
                             </a>
                             <!-- ITEM: video -->
                             <a
-                                href="assets/video/gpi-full.mp4"
+                                href="assets/video/GPI-full.mp4"
                                 class="card ts-gallery__item popup-video"
                                 data-animate="ts-fadeInUp"
                             >
@@ -979,10 +986,10 @@
                                         muted
                                         loop
                                         playsinline
-                                        poster="assets/thumbs/gpi-thumb.jpg"
+                                        poster="assets/thumbs/GPI-thumb.jpg"
                                     >
                                         <source
-                                            src="assets/video/gpi-preview.mp4"
+                                            src="assets/video/GPI-preview.mp4"
                                             type="video/mp4"
                                         />
                                     </video>
@@ -1312,7 +1319,13 @@
                                 <h5>Email</h5>
                                 <div class="ts-opacity__50">
                                     <figure class="mb-0">
-                                        <a href="/cdn-cgi/l/email-protection#fc95929a93bc98959895998e9298d29f9391"><span class="__cf_email__" data-cfemail="93fafdf5fcd3f7faf7faf6e1fdf7bdf0fcfe">[email&#160;protected]</span></a
+                                        <a
+                                            href="/cdn-cgi/l/email-protection#fc95929a93bc98959895998e9298d29f9391"
+                                            ><span
+                                                class="__cf_email__"
+                                                data-cfemail="93fafdf5fcd3f7faf7faf6e1fdf7bdf0fcfe"
+                                                >[email&#160;protected]</span
+                                            ></a
                                         >
                                     </figure>
                                 </div>
@@ -1557,7 +1570,11 @@
         <!-- ─── /MODAL ──────────────────────────────────────────────────────────────── -->
 
         <!-- ─── SCRIPTS ─────────────────────────────────────────────────────────────── -->
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script
+        <script
+            data-cfasync="false"
+            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+        ></script>
+        <script
             data-cfasync="false"
             src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
         ></script>
@@ -1721,7 +1738,7 @@
             });
 
             function closeVideoPopup() {
-                var videoPlayer = document.ge
+                var videoPlayer = document.ge;
                 var videoPlayer = document.getElementById("videoPlayer");
                 var overlay = document.getElementById("videoOverlay");
 
@@ -1733,28 +1750,33 @@
 
         <!-- Navbar scroll spy -->
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 var sections = $("section[id], #page-top");
                 var navLinks = $(".nav-link.ts-scroll");
-                
-                $(window).on("scroll", function() {
+
+                $(window).on("scroll", function () {
                     var scrollPos = $(window).scrollTop() + 100;
-                    
-                    sections.each(function() {
+
+                    sections.each(function () {
                         var section = $(this);
                         var sectionTop = section.offset().top;
                         var sectionBottom = sectionTop + section.outerHeight();
                         var sectionId = section.attr("id");
-                        
-                        if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+
+                        if (
+                            scrollPos >= sectionTop &&
+                            scrollPos < sectionBottom
+                        ) {
                             navLinks.removeClass("active");
-                            $("a[href=\"#" + sectionId + "\"]").addClass("active");
+                            $('a[href="#' + sectionId + '"]').addClass(
+                                "active",
+                            );
                         }
                     });
-                    
+
                     if ($(window).scrollTop() < 100) {
                         navLinks.removeClass("active");
-                        $("a[href=\"#page-top\"]").addClass("active");
+                        $('a[href="#page-top"]').addClass("active");
                     }
                 });
             });

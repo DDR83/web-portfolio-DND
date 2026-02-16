@@ -1197,6 +1197,15 @@ body.has-loading-screen.loading-done::after  { transform: scale(0); opacity: 0; 
 
 .ts-partners a { display: block; padding: 0.625rem 0.3125rem; }
 
+/* Mobile: loghi uno per riga */
+@media (max-width: 767px) {
+  .ts-partners img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 200px;
+  }
+}
+
 /* -- Plugins -------------------------------------------------------------------------------------------------------- */
 
 .tv-site-widget { border: none !important; }
@@ -1558,4 +1567,73 @@ select::-ms-expand { display: none; }
 /* Portrait phones – h4 size */
 @media (max-width: 47.9375rem) {
   h4, .ts-h4 { font-size: 1.125rem; }
+}
+
+/* Video Showcase custom styles */
+/* Video showcase - eredita da portfolio ma con altezza custom */
+#video-showcase {
+  position: relative;
+  z-index: 2;
+}
+
+#video-showcase .ts-gallery__image {
+  height: 60vh;
+  min-height: 400px;
+}
+
+#video-showcase .card {
+  border-radius: 0;
+  margin: 0;
+}
+
+#video-showcase .card-img {
+  aspect-ratio: auto !important;
+  filter: grayscale(1);
+  transition: filter 0.5s ease;
+}
+
+#video-showcase:hover .card-img {
+  filter: none;
+}
+
+/* Description behavior - same as portfolio */
+#video-showcase .ts-gallery__item-description {
+  background-color: rgba(0,0,0,0.8);
+  backface-visibility: hidden;
+  color: var(--color-white);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  transform: scale(1.2);
+  transition: var(--duration-normal) ease;
+  opacity: 0;
+}
+
+#video-showcase:hover .ts-gallery__item-description {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Overlay blu - same as portfolio */
+#video-showcase .ts-gallery__image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 50, 100, 0.35);
+  z-index: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#video-showcase:hover .ts-gallery__image::before {
+  opacity: 0;
 }

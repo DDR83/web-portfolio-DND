@@ -60,7 +60,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div
-                            class="navbar-nav d-block d-lg-flex ml-auto text-right"
+                            class="navbar-nav d-block d-lg-flex ml-auto text-right align-items-center"
                         >
                             <a
                                 class="nav-item nav-link active ts-scroll"
@@ -71,23 +71,29 @@
                             <a
                                 class="nav-item nav-link ts-scroll"
                                 href="#about-me"
-                                >My Work</a
+                                data-i18n="nav.work">My Work</a
                             >
                             <a
                                 class="nav-item nav-link ts-scroll"
                                 href="#my-services"
-                                >Services</a
+                                data-i18n="nav.services">Services</a
                             >
                             <a
                                 class="nav-item nav-link ts-scroll"
                                 href="#portfolio"
-                                >Portfolio</a
+                                data-i18n="nav.portfolio">Portfolio</a
                             >
                             <a
                                 class="nav-item nav-link ts-scroll mr-2"
                                 href="#contact"
-                                >Contact</a
+                                data-i18n="nav.contact">Contact</a
                             >
+                            <!-- Language Switcher -->
+                            <div class="nav-item d-flex align-items-center ml-2">
+                                <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+                                <span class="lang-sep">|</span>
+                                <button id="lang-it" class="lang-btn" onclick="setLang('it')">IT</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,9 +110,9 @@
                             <h1>DIDIER NAIM DEFLI</h1>
                             <h1 class="ts-bubble-border">
                                 <span class="ts-title-rotate">
-                                    <span class="active">Think</span>
-                                    <span>Design</span>
-                                    <span>Visualize</span>
+                                    <span class="active" data-i18n="hero.word1">Think</span>
+                                    <span data-i18n="hero.word2">Design</span>
+                                    <span data-i18n="hero.word3">Visualize</span>
                                 </span>
                             </h1>
                         </div>
@@ -169,7 +175,7 @@
                                 />
                             </div>
                             <div class="col-md-10">
-                                <p class="lead">
+                                <p class="lead" data-i18n="about.text">
                                     Visual creator specializing in motorsport
                                     broadcasting and data-driven graphics. With
                                     a background in architecture and experience
@@ -204,7 +210,7 @@
                                     >
                                         0
                                     </figure>
-                                    <h5>Collaborations</h5>
+                                    <h5 data-i18n="stats.collaborations">Collaborations</h5>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-3">
@@ -215,7 +221,7 @@
                                     >
                                         0
                                     </figure>
-                                    <h5>Projects</h5>
+                                    <h5 data-i18n="stats.projects">Projects</h5>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-3">
@@ -226,7 +232,7 @@
                                     >
                                         0
                                     </figure>
-                                    <h5>Videos</h5>
+                                    <h5 data-i18n="stats.videos">Videos</h5>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-3">
@@ -237,7 +243,7 @@
                                     >
                                         0
                                     </figure>
-                                    <h5>Years Experience</h5>
+                                    <h5 data-i18n="stats.experience">Years Experience</h5>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +258,7 @@
                     style="padding-top: 6rem; padding-bottom: 5rem"
                 >
                     <div class="container">
-                        <p class="text-center ts-partners-tagline mb-4">
+                        <p class="text-center ts-partners-tagline mb-4" data-i18n="partners.title">
                             Collaborations
                         </p>
                         <div
@@ -340,7 +346,7 @@
                 >
                     <div class="container">
                         <div class="ts-title text-center">
-                            <h2>Services</h2>
+                            <h2 data-i18n="nav.services">Services</h2>
                         </div>
 
                         <div class="row">
@@ -355,13 +361,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>3D Modeling</h4>
-                                            <p class="mb-0">
-                                                Creating detailed and realistic
-                                                3D models tailored for
-                                                visualization, animation, and
-                                                virtual production.
-                                            </p>
+                                            <h4 data-i18n="svc.modeling">3D Modeling</h4>
+                                            <p class="mb-0" data-i18n="svc.modeling.desc">Creating detailed and realistic 3D models tailored for visualization, animation, and virtual production.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -370,7 +371,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -392,13 +393,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>Rendering</h4>
-                                            <p class="mb-0">
-                                                High-quality, photorealistic
-                                                rendering for images,
-                                                animations, and visual
-                                                presentations.
-                                            </p>
+                                            <h4 data-i18n="svc.rendering">Rendering</h4>
+                                            <p class="mb-0" data-i18n="svc.rendering.desc">High-quality, photorealistic rendering for images, animations, and visual presentations.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -407,7 +403,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -429,13 +425,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>Animation</h4>
-                                            <p class="mb-0">
-                                                Bringing 3D assets to life
-                                                through smooth, engaging
-                                                animations for storytelling,
-                                                presentations, and marketing.
-                                            </p>
+                                            <h4 data-i18n="svc.animation">Animation</h4>
+                                            <p class="mb-0" data-i18n="svc.animation.desc">Bringing 3D assets to life through smooth, engaging animations for storytelling, presentations, and marketing.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -444,7 +435,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -466,13 +457,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>3D Compositing</h4>
-                                            <p class="mb-0">
-                                                Seamlessly integrating 3D
-                                                elements into live-action
-                                                footage for realistic VFX and
-                                                cinematic visuals.
-                                            </p>
+                                            <h4 data-i18n="svc.compositing">3D Compositing</h4>
+                                            <p class="mb-0" data-i18n="svc.compositing.desc">Seamlessly integrating 3D elements into live-action footage for realistic VFX and cinematic visuals.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -481,7 +467,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -503,13 +489,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>Video Editing</h4>
-                                            <p class="mb-0">
-                                                Professional editing and
-                                                post-production for videos,
-                                                combining creative storytelling
-                                                with technical precision.
-                                            </p>
+                                            <h4 data-i18n="svc.video">Video Editing</h4>
+                                            <p class="mb-0" data-i18n="svc.video.desc">Professional editing and post-production for videos, combining creative storytelling with technical precision.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -518,7 +499,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -540,15 +521,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>Data-Driven Visuals</h4>
-                                            <p class="mb-0">
-                                                Transforming data into
-                                                compelling visualizations,
-                                                including leaderboards,
-                                                telemetry, statistics, and
-                                                dashboards for sports and
-                                                corporate clients.
-                                            </p>
+                                            <h4 data-i18n="svc.data">Data-Driven Visuals</h4>
+                                            <p class="mb-0" data-i18n="svc.data.desc">Transforming data into compelling visualizations, including leaderboards, telemetry, statistics, and dashboards for sports and corporate clients.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -557,7 +531,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -579,13 +553,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>Copywriting</h4>
-                                            <p class="mb-0">
-                                                Crafting clear, engaging, and
-                                                persuasive copy for marketing,
-                                                storytelling, and brand
-                                                communication.
-                                            </p>
+                                            <h4 data-i18n="svc.copy">Copywriting</h4>
+                                            <p class="mb-0" data-i18n="svc.copy.desc">Crafting clear, engaging, and persuasive copy for marketing, storytelling, and brand communication.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -594,7 +563,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -617,15 +586,9 @@
                                         </div>
                                         <div class="ts-item-body">
                                             <h4>
-                                                Infographics &amp; 3D/2D
-                                                Integration
+                                                <span data-i18n="svc.infographics">Infographics &amp; 3D/2D Integration</span>
                                             </h4>
-                                            <p class="mb-0">
-                                                Designing dynamic infographics
-                                                and seamlessly integrating 3D
-                                                and 2D elements for impactful
-                                                visual communication.
-                                            </p>
+                                            <p class="mb-0" data-i18n="svc.infographics.desc">Designing dynamic infographics and seamlessly integrating 3D and 2D elements for impactful visual communication.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -634,7 +597,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -656,13 +619,8 @@
                                             </figure>
                                         </div>
                                         <div class="ts-item-body">
-                                            <h4>AI Integration</h4>
-                                            <p class="mb-0">
-                                                Leveraging AI at every stage,
-                                                from mockups and previs to final
-                                                delivery, for both images and
-                                                video content.
-                                            </p>
+                                            <h4 data-i18n="svc.ai">AI Integration</h4>
+                                            <p class="mb-0" data-i18n="svc.ai.desc">Leveraging AI at every stage, from mockups and previs to final delivery, for both images and video content.</p>
                                         </div>
                                         <div class="ts-item-footer">
                                             <a
@@ -671,7 +629,7 @@
                                                 data-target="#modal"
                                                 class="ts-link-arrow-effect"
                                             >
-                                                <span>Read More</span>
+                                                <span data-i18n="svc.readmore">Read More</span>
                                             </a>
                                         </div>
                                     </div>
@@ -686,10 +644,11 @@
                 <section class="ts-block ts-separate-bg-element" data-bg-image="assets/img/bg-keyboard.jpg" data-bg-image-opacity=".15" style="padding-top: calc(var(--space-2xl) * 0.6); padding-bottom: calc(var(--space-2xl) * 0.6);">
                     <div class="container">
                         <div class="text-center px-5 py-2 position-relative">
-                            <h3 class="my-2">Let's talk about your project.</h3>
+                            <h3 class="my-2" data-i18n="cta.title">Let's talk about your project.</h3>
                             <a
                                 href="#contact"
                                 class="btn btn-primary mr-2 ts-scroll"
+                                data-i18n="cta.btn"
                                 >Get in Touch</a
                             >
                         </div>
@@ -701,7 +660,7 @@
                 <section class="ts-block pb-5" id="portfolio">
                     <div class="container">
                         <div class="ts-title">
-                            <h2>Portfolio</h2>
+                            <h2 data-i18n="nav.portfolio">Portfolio</h2>
                         </div>
 
                         <!--
@@ -811,9 +770,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            Data | Infographics
+                                            <span data-i18n="cat.datainfo">Data | Infographics</span>
                                         </h6>
-                                        <h4>F1 Charts 2025</h4>
+                                        <h4 data-i18n="pf.f1charts">F1 Charts 2025</h4>
                                     </div>
                                 </div>
                             </a>
@@ -839,9 +798,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation | Infographics
+                                            <span data-i18n="cat.3danim"><span data-i18n="cat.3d">3D | Animation</span> | Infographics</span>
                                         </h6>
-                                        <h4>Brembo MG 2024 TT Assen</h4>
+                                        <h4 data-i18n="pf.brembo24">Brembo MG 2024 TT Assen</h4>
                                     </div>
                                 </div>
                             </a>
@@ -867,9 +826,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation
+                                            <span data-i18n="cat.3d">3D | Animation</span>
                                         </h6>
-                                        <h4>F1 Explainer Ferrari</h4>
+                                        <h4 data-i18n="pf.ferrari">F1 Explainer Ferrari</h4>
                                     </div>
                                 </div>
                             </a>
@@ -895,9 +854,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation | Compositing
+                                            <span data-i18n="cat.3dcomp"><span data-i18n="cat.3d">3D | Animation</span> | Compositing</span>
                                         </h6>
-                                        <h4>Brembo 60 years</h4>
+                                        <h4 data-i18n="pf.brembo60">Brembo 60 years</h4>
                                     </div>
                                 </div>
                             </a>
@@ -923,9 +882,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation
+                                            <span data-i18n="cat.3d">3D | Animation</span>
                                         </h6>
-                                        <h4>F1 Explainer Mercedes</h4>
+                                        <h4 data-i18n="pf.mercedes">F1 Explainer Mercedes</h4>
                                     </div>
                                 </div>
                             </a>
@@ -951,9 +910,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation | Infographics
+                                            <span data-i18n="cat.3danim"><span data-i18n="cat.3d">3D | Animation</span> | Infographics</span>
                                         </h6>
-                                        <h4>RaiSport Telemtry Explainer F1</h4>
+                                        <h4 data-i18n="pf.raisport">RaiSport Telemtry Explainer F1</h4>
                                     </div>
                                 </div>
                             </a>
@@ -979,9 +938,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation | Infographics
+                                            <span data-i18n="cat.3danim"><span data-i18n="cat.3d">3D | Animation</span> | Infographics</span>
                                         </h6>
-                                        <h4>Brembo F1 2023 Miami</h4>
+                                        <h4 data-i18n="pf.brembo23">Brembo F1 2023 Miami</h4>
                                     </div>
                                 </div>
                             </a>
@@ -1007,9 +966,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            Infographics | 2D/3D Animation
+                                            <span data-i18n="cat.info23d">Infographics | 2D/3D Animation</span>
                                         </h6>
-                                        <h4>GPI 2025 Summary</h4>
+                                        <h4 data-i18n="pf.gpi">GPI 2025 Summary</h4>
                                     </div>
                                 </div>
                             </a>
@@ -1035,9 +994,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation
+                                            <span data-i18n="cat.3d">3D | Animation</span>
                                         </h6>
-                                        <h4>F1 Explainer Power Unit</h4>
+                                        <h4 data-i18n="pf.powerunit">F1 Explainer Power Unit</h4>
                                     </div>
                                 </div>
                             </a>
@@ -1063,9 +1022,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation | Compositing
+                                            <span data-i18n="cat.3dcomp"><span data-i18n="cat.3d">3D | Animation</span> | Compositing</span>
                                         </h6>
-                                        <h4>SkySport Monza 2020</h4>
+                                        <h4 data-i18n="pf.monza">SkySport Monza 2020</h4>
                                     </div>
                                 </div>
                             </a>
@@ -1091,9 +1050,9 @@
                                     </video>
                                     <div class="ts-gallery__item-description">
                                         <h6 class="ts-opacity__50">
-                                            3D | Animation
+                                            <span data-i18n="cat.3d">3D | Animation</span>
                                         </h6>
-                                        <h4>F1 Explainer Cooling</h4>
+                                        <h4 data-i18n="pf.cooling">F1 Explainer Cooling</h4>
                                     </div>
                                 </div>
                             </a>
@@ -1204,7 +1163,7 @@
                 >
                     <div class="container">
                         <div class="ts-title text-center">
-                            <h2 class="ts-bubble-border">Get In Touch</h2>
+                            <h2 class="ts-bubble-border" data-i18n="contact.title">Get In Touch</h2>
                         </div>
 
                         <div class="row ts-xs-text-center justify-content-center">
@@ -1675,4 +1634,143 @@
             $(document).ready(function () {
                 $('a[href="#my-services"]').on("click", function (e) {
                     e.preventDefault();
-                    e.stopPropagatio
+                    e.stopPropagatio                    e.stopPropagation();
+                    var target = $("#my-services");
+                    var offset = target.offset().top - window.innerHeight * 0.17;
+                    $("html, body").stop().animate({ scrollTop: offset }, 800);
+                    return false;
+                });
+            });
+        </script>
+
+        <!-- i18n Language Switcher -->
+        <script>
+            var translations = {
+                en: {
+                    "nav.work": "My Work",
+                    "nav.services": "Services",
+                    "nav.portfolio": "Portfolio",
+                    "nav.contact": "Contact",
+                    "about.text": "Visual creator specializing in motorsport broadcasting and data-driven graphics. With a background in architecture and experience working with Bulgari (retail design) and various architecture studios for high-end rendering, I combine 3D modeling, animation, and real-time data visualization to create compelling content for F1, MotoGP, live sports coverage, and architectural visualization.",
+                    "stats.collaborations": "Collaborations",
+                    "stats.projects": "Projects",
+                    "stats.videos": "Videos",
+                    "stats.experience": "Years Experience",
+                    "partners.title": "Collaborations",
+                    "cta.title": "Let's talk about your project.",
+                    "cta.btn": "Get in Touch",
+                    "contact.title": "Get In Touch",
+                    // Services
+                    "svc.modeling": "3D Modeling",
+                    "svc.rendering": "Rendering",
+                    "svc.animation": "Animation",
+                    "svc.compositing": "3D Compositing",
+                    "svc.video": "Video Editing",
+                    "svc.data": "Data-Driven Visuals",
+                    "svc.copy": "Copywriting",
+                    "svc.infographics": "Infographics & 3D/2D Integration",
+                    "svc.ai": "AI Integration",
+                    "svc.readmore": "Read More",
+                    "svc.modeling.desc": "Creating detailed and realistic 3D models tailored for visualization, animation, and virtual production.",
+                    "svc.rendering.desc": "High-quality, photorealistic rendering for images, animations, and visual presentations.",
+                    "svc.animation.desc": "Bringing 3D assets to life through smooth, engaging animations for storytelling, presentations, and marketing.",
+                    "svc.compositing.desc": "Seamlessly integrating 3D elements into live-action footage for realistic VFX and cinematic visuals.",
+                    "svc.video.desc": "Professional editing and post-production for videos, combining creative storytelling with technical precision.",
+                    "svc.data.desc": "Transforming data into compelling visualizations, including leaderboards, telemetry, statistics, and dashboards for sports and corporate clients.",
+                    "svc.copy.desc": "Crafting clear, engaging, and persuasive copy for marketing, storytelling, and brand communication.",
+                    "svc.infographics.desc": "Designing dynamic infographics and seamlessly integrating 3D and 2D elements for impactful visual communication.",
+                    "svc.ai.desc": "Leveraging AI at every stage, from mockups and previs to final delivery, for both images and video content.",
+                    // Portfolio titles
+                    "pf.f1charts": "F1 Charts 2025",
+                    "pf.brembo24": "Brembo MG 2024 TT Assen",
+                    "pf.ferrari": "F1 Explainer Ferrari",
+                    "pf.brembo60": "Brembo 60 years",
+                    "pf.mercedes": "F1 Explainer Mercedes",
+                    "pf.raisport": "RaiSport Telemetry Explainer F1",
+                    "pf.brembo23": "Brembo F1 2023 Miami",
+                    "pf.gpi": "GPI 2025 Summary",
+                    "pf.powerunit": "F1 Explainer Power Unit",
+                    "pf.monza": "SkySport Monza 2020",
+                    "pf.cooling": "F1 Explainer Cooling",
+                    // Portfolio categories
+                    "cat.datainfo": "Data | Infographics",
+                    "cat.3danim": "3D | Animation | Infographics",
+                    "cat.3dcomp": "3D | Animation | Compositing",
+                    "cat.3d": "3D | Animation",
+                    "cat.info23d": "Infographics | 2D/3D Animation"
+                },
+                it: {
+                    "nav.work": "Il mio Lavoro",
+                    "nav.services": "Servizi",
+                    "nav.portfolio": "Portfolio",
+                    "nav.contact": "Contatti",
+                    "about.text": "Visual creator specializzato in broadcasting motorsport e grafica data-driven. Con un background in architettura ed esperienza con Bulgari (retail design) e vari studi di architettura per rendering di alto livello, combino modellazione 3D, animazione e visualizzazione dati in tempo reale per creare contenuti per F1, MotoGP, coperture sportive live e visualizzazione architettonica.",
+                    "stats.collaborations": "Collaborazioni",
+                    "stats.projects": "Progetti",
+                    "stats.videos": "Video",
+                    "stats.experience": "Anni di Esperienza",
+                    "partners.title": "Collaborazioni",
+                    "cta.title": "Parliamo del tuo progetto.",
+                    "cta.btn": "Contattami",
+                    "contact.title": "Contattami",
+                    // Servizi
+                    "svc.modeling": "Modellazione 3D",
+                    "svc.rendering": "Rendering",
+                    "svc.animation": "Animazioni",
+                    "svc.compositing": "Compositing 3D",
+                    "svc.video": "Montaggio Video",
+                    "svc.data": "Grafica Data-Driven",
+                    "svc.copy": "Copywriting",
+                    "svc.infographics": "Infografiche e Integrazione 2D/3D",
+                    "svc.ai": "Integrazione AI",
+                    "svc.readmore": "Scopri di più",
+                    "svc.modeling.desc": "Creazione di modelli 3D dettagliati e realistici per visualizzazione, animazione e produzione virtuale.",
+                    "svc.rendering.desc": "Rendering fotorealistico di alta qualità per immagini, animazioni e presentazioni visive.",
+                    "svc.animation.desc": "Animazioni fluide e coinvolgenti per storytelling, presentazioni e marketing.",
+                    "svc.compositing.desc": "Integrazione di elementi 3D in riprese live-action per VFX realistici e visuals cinematografici.",
+                    "svc.video.desc": "Editing professionale e post-produzione video, con un approccio creativo e precisione tecnica.",
+                    "svc.data.desc": "Trasformazione dei dati in visualizzazioni efficaci: classifiche, telemetria, statistiche e dashboard per clienti sportivi e corporate.",
+                    "svc.copy.desc": "Testi chiari, coinvolgenti e persuasivi per marketing, storytelling e comunicazione del brand.",
+                    "svc.infographics.desc": "Progettazione di infografiche dinamiche con integrazione fluida di elementi 3D e 2D per una comunicazione visiva d'impatto.",
+                    "svc.ai.desc": "Utilizzo dell'AI in ogni fase del progetto, dai mockup e previs alla consegna finale, per immagini e video.",
+                    // Titoli portfolio
+                    "pf.f1charts": "Grafici F1 2025",
+                    "pf.brembo24": "Brembo MG 2024 TT Assen",
+                    "pf.ferrari": "Explainer F1 Ferrari",
+                    "pf.brembo60": "Brembo 60 anni",
+                    "pf.mercedes": "Explainer F1 Mercedes",
+                    "pf.raisport": "RaiSport Telemetria Explainer F1",
+                    "pf.brembo23": "Brembo F1 2023 Miami",
+                    "pf.gpi": "GPI 2025 Riepilogo",
+                    "pf.powerunit": "Explainer F1 Power Unit",
+                    "pf.monza": "SkySport Monza 2020",
+                    "pf.cooling": "Explainer F1 Raffreddamento",
+                    // Categorie portfolio
+                    "cat.datainfo": "Dati | Infografiche",
+                    "cat.3danim": "3D | Animazioni | Infografiche",
+                    "cat.3dcomp": "3D | Animazioni | Compositing",
+                    "cat.3d": "3D | Animazioni",
+                    "cat.info23d": "Infografiche | Animazione 2D/3D"
+                }
+            };
+
+            function setLang(lang) {
+                document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                    var key = el.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+                document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+                document.getElementById('lang-it').classList.toggle('active', lang === 'it');
+                localStorage.setItem('lang', lang);
+                document.documentElement.lang = lang;
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var saved = localStorage.getItem('lang') || 'en';
+                setLang(saved);
+            });
+        </script>
+    </body>
+</html>

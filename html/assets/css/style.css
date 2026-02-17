@@ -1654,3 +1654,45 @@ select::-ms-expand { display: none; }
   color: var(--color-white) !important;
   text-decoration: none;
 }
+
+/* Language Switcher */
+.lang-btn {
+  background: none;
+  border: none;
+  color: #888888;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  transition: color var(--duration-fast) ease;
+}
+
+.lang-btn:hover {
+  color: #cccccc;
+}
+
+.lang-btn.active {
+  color: var(--color-primary);
+}
+
+.lang-sep {
+  color: #888888;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0 0.1rem;
+}
+
+/* Scrolled navbar lang button */
+.ts-navbar-scrolled .lang-btn {
+  color: #888888;
+}
+
+.ts-navbar-scrolled .lang-btn.active {
+  color: var(--color-primary);
+}
+
+.ts-navbar-scrolled .lang-btn:hover {
+  color: #191919;
+}

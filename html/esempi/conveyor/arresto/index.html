@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ripristino dopo l'arresto - nastro trasportatore ES-01 (esempio)</title>
+<meta name="description" content="Procedura guidata di ripristino dopo l'arresto di emergenza di una macchina fittizia, collegata al QR B del manuale dimostrativo.">
+<style>
+:root{--ink:#111827;--bg:#F8FAFC;--card:#fff;--line:#E2E8F0;--acc:#F59E0B;--danger:#DC2626;--muted:#475569}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.avviso{background:var(--ink);color:#fff;font-size:13px;padding:8px 16px;text-align:center}
+.avviso b{color:var(--acc)}
+header{padding:28px 16px 8px;max-width:760px;margin:0 auto}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px}
+.sotto{color:var(--muted);margin:0}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:2}
+nav ul{list-style:none;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;max-width:760px}
+nav a{display:block;white-space:nowrap;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-size:14px}
+nav a:hover,nav a:focus{border-color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:8px 16px 40px}
+section{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:18px;margin:18px 0;scroll-margin-top:64px}
+section:target{box-shadow:0 0 0 3px var(--acc)}
+.qr{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;background:var(--ink);color:#fff;border-radius:3px;padding:2px 8px;margin-bottom:6px}
+h2{font-size:20px;margin:0 0 6px}
+p{margin:0 0 10px}
+.media{position:relative;aspect-ratio:16/9;background:#E5E7EB;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;text-align:center;padding:12px;margin:10px 0}
+.pag{font-size:13px;color:var(--muted)}
+model-viewer{width:100%;aspect-ratio:4/3;background:#E5E7EB;border-radius:4px;margin:10px 0;--poster-color:transparent}
+model-viewer .media{position:absolute;inset:0;margin:0;aspect-ratio:auto}
+.ar-btn{position:absolute;right:10px;bottom:10px;background:var(--acc);color:var(--ink);border:0;border-radius:4px;padding:8px 12px;font:600 14px/1 inherit}
+.proc{list-style:none;margin:12px 0;padding:0;display:grid;gap:10px}
+.passo{border:1px solid var(--line);border-radius:6px;padding:12px;transition:opacity .2s}
+.passo h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+.passo h3 i{font-style:normal;background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.passo label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;min-height:44px}
+.passo input{width:22px;height:22px;margin:0;flex:none;accent-color:#15803D}
+.passo .nota{font-weight:600;color:var(--danger)}
+.passo.bloccato{opacity:.4}
+.passo.bloccato label{cursor:not-allowed}
+.passo.ok{border-color:#15803D;background:#F0FDF4}
+.passo.ok h3 i{background:#15803D}
+.fatto{background:#15803D;color:#fff;border-radius:6px;padding:12px;margin:10px 0}
+.reset{background:none;border:1px solid var(--line);border-radius:4px;padding:8px 12px;font:inherit;font-size:14px;cursor:pointer}
+footer{max-width:760px;margin:0 auto;padding:0 16px 32px;font-size:13px;color:var(--muted)}
+footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="avviso"><b>ESEMPIO DIMOSTRATIVO</b> - macchina fittizia, contenuti non reali</div>
+<header>
+  <h1>Nastro trasportatore ES-01</h1>
+  <p class="sotto">Contenuto collegato al QR code del manuale d'uso di esempio.</p>
+</header>
+<main>
+  <section id="arresto">
+    <span class="qr">QR B</span>
+    <h2>Ripristino dopo l'arresto di emergenza</h2>
+    <p>Il fungo rosso è stato premuto: la spia lampeggia rossa e il nastro è fermo. Seguire i passi in ordine. Ogni passo si sblocca solo quando il precedente è spuntato.</p>
+    <ol class="proc" id="proc">
+      <li class="passo">
+        <h3><i>1</i> Rimuovere la causa</h3>
+        <label><input type="checkbox"> La causa dell'arresto è stata eliminata</label>
+        <label><input type="checkbox"> Nessuno è vicino al nastro</label>
+        <label><input type="checkbox"> Tunnel e carter sono montati</label>
+      </li>
+      <li class="passo">
+        <h3><i>2</i> Sbloccare il fungo</h3>
+        <p>Ruotare il fungo in senso orario finché scatta verso l'alto.</p>
+        <label><input type="checkbox"> Il fungo è sollevato</label>
+        <p class="nota">Lo sblocco non riavvia la macchina.</p>
+      </li>
+      <li class="passo">
+        <h3><i>3</i> Riavviare con il comando di marcia</h3>
+        <label><input type="checkbox"> Ho avvisato chi è vicino</label>
+        <label><input type="checkbox"> Ho premuto il comando di marcia e la spia è verde</label>
+      </li>
+    </ol>
+    <div class="fatto" id="fatto" hidden><b>Macchina ripristinata.</b> Se l'arresto si ripete, fermarsi e avvisare il responsabile.</div>
+    <button type="button" class="reset" id="reset">Ricomincia</button>
+    <p class="pag">Dal manuale: pagina 6 e scheda A2.</p>
+  </section>
+</main>
+<footer>
+  <p>Documento dimostrativo di comunicazione tecnica e visualizzazione 3D. Dati e macchina fittizi. Non costituisce certificazione CE né consulenza ingegneristica abilitata.</p>
+  <p>Realizzato da Didier Naim Defli - <a href="/">didiernd.com</a></p>
+</footer>
+<script>
+(function(){
+  var passi=[].slice.call(document.querySelectorAll('#proc .passo'));
+  var fatto=document.getElementById('fatto');
+  function aggiorna(){
+    var aperto=true;
+    passi.forEach(function(p){
+      var c=[].slice.call(p.querySelectorAll('input'));
+      c.forEach(function(x){x.disabled=!aperto; if(!aperto)x.checked=false;});
+      p.classList.toggle('bloccato',!aperto);
+      var ok=aperto&&c.every(function(x){return x.checked;});
+      p.classList.toggle('ok',ok);
+      aperto=ok;
+    });
+    fatto.hidden=!aperto;
+  }
+  document.getElementById('proc').addEventListener('change',aggiorna);
+  document.getElementById('reset').addEventListener('click',function(){
+    passi.forEach(function(p){p.querySelectorAll('input').forEach(function(x){x.checked=false;});});
+    aggiorna();
+  });
+  aggiorna();
+})();
+</script>
+</body>
+</html>

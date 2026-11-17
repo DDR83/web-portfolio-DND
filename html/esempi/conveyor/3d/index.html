@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Modello 3D e AR - nastro trasportatore ES-01 (esempio)</title>
+<meta name="description" content="Modello 3D in realtà aumentata di una macchina fittizia, collegato al QR A del manuale dimostrativo.">
+<style>
+:root{--ink:#111827;--bg:#F8FAFC;--card:#fff;--line:#E2E8F0;--acc:#F59E0B;--danger:#DC2626;--muted:#475569}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.avviso{background:var(--ink);color:#fff;font-size:13px;padding:8px 16px;text-align:center}
+.avviso b{color:var(--acc)}
+header{padding:28px 16px 8px;max-width:760px;margin:0 auto}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px}
+.sotto{color:var(--muted);margin:0}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:2}
+nav ul{list-style:none;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;max-width:760px}
+nav a{display:block;white-space:nowrap;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-size:14px}
+nav a:hover,nav a:focus{border-color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:8px 16px 40px}
+section{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:18px;margin:18px 0;scroll-margin-top:64px}
+section:target{box-shadow:0 0 0 3px var(--acc)}
+.qr{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;background:var(--ink);color:#fff;border-radius:3px;padding:2px 8px;margin-bottom:6px}
+h2{font-size:20px;margin:0 0 6px}
+p{margin:0 0 10px}
+.media{position:relative;aspect-ratio:16/9;background:#E5E7EB;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;text-align:center;padding:12px;margin:10px 0}
+.pag{font-size:13px;color:var(--muted)}
+model-viewer{width:100%;aspect-ratio:4/3;background:#E5E7EB;border-radius:4px;margin:10px 0;--poster-color:transparent}
+model-viewer .media{position:absolute;inset:0;margin:0;aspect-ratio:auto}
+.ar-btn{position:absolute;right:10px;bottom:10px;background:var(--acc);color:var(--ink);border:0;border-radius:4px;padding:8px 12px;font:600 14px/1 inherit}
+.proc{list-style:none;margin:12px 0;padding:0;display:grid;gap:10px}
+.passo{border:1px solid var(--line);border-radius:6px;padding:12px;transition:opacity .2s}
+.passo h3{margin:0 0 8px;font-size:17px;display:flex;align-items:center;gap:8px}
+.passo h3 i{font-style:normal;background:var(--ink);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.passo label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;min-height:44px}
+.passo input{width:22px;height:22px;margin:0;flex:none;accent-color:#15803D}
+.passo .nota{font-weight:600;color:var(--danger)}
+.passo.bloccato{opacity:.4}
+.passo.bloccato label{cursor:not-allowed}
+.passo.ok{border-color:#15803D;background:#F0FDF4}
+.passo.ok h3 i{background:#15803D}
+.fatto{background:#15803D;color:#fff;border-radius:6px;padding:12px;margin:10px 0}
+.reset{background:none;border:1px solid var(--line);border-radius:4px;padding:8px 12px;font:inherit;font-size:14px;cursor:pointer}
+footer{max-width:760px;margin:0 auto;padding:0 16px 32px;font-size:13px;color:var(--muted)}
+footer a{color:var(--ink)}
+</style>
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+</head>
+<body>
+<div class="avviso"><b>ESEMPIO DIMOSTRATIVO</b> - macchina fittizia, contenuti non reali</div>
+<header>
+  <h1>Nastro trasportatore ES-01</h1>
+  <p class="sotto">Contenuto collegato al QR code del manuale d'uso di esempio.</p>
+</header>
+<main>
+  <section id="3d">
+    <span class="qr">QR A</span>
+    <h2>Modello 3D della macchina</h2>
+    <p>Ruotare con un dito, avvicinare con due. Su smartphone il pulsante "Vedi nel tuo spazio" mostra la macchina in realtà aumentata, a grandezza reale.</p>
+    <model-viewer src="conveyor.glb" ios-src="conveyor.usdz" autoplay animation-name="Nastro_in_marcia" loading="eager" alt="Modello 3D del nastro trasportatore fittizio" camera-controls touch-action="pan-y" ar ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" shadow-intensity="1" exposure="1">
+      <button slot="ar-button" class="ar-btn">Vedi nel tuo spazio</button>
+      <div slot="poster" class="media">Caricamento del modello 3D...</div>
+    </model-viewer>
+    <p class="pag">Dal manuale: copertina.</p>
+  </section>
+</main>
+<footer>
+  <p>Documento dimostrativo di comunicazione tecnica e visualizzazione 3D. Dati e macchina fittizi. Non costituisce certificazione CE né consulenza ingegneristica abilitata.</p>
+  <p>Realizzato da Didier Naim Defli - <a href="/">didiernd.com</a></p>
+</footer>
+</body>
+</html>

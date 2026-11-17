@@ -99,6 +99,14 @@ section{padding:64px 0}
 .soon-strip .tag{margin:0}
 .soon-strip .tag,.soon .tag{display:inline-block;color:var(--acc2);border:2px solid var(--acc2);padding:.1rem .6rem;font:400 .95rem "Share Tech",Arial,sans-serif;letter-spacing:.1em}
 .soon-strip .dim{opacity:.5}
+.pgrid{display:grid;gap:24px;grid-template-columns:repeat(2,1fr);margin-top:8px}
+.pcard{display:flex;flex-direction:column}
+.pcard .lbl{margin:0 0 10px;font:600 .78rem/1.3 ui-monospace,Consolas,"Courier New",monospace;letter-spacing:.08em;color:#475569}
+.pcard h3{align-self:flex-start}
+.pcard p:not(.lbl):not(.ptag){flex:1}
+.ptag{align-self:flex-start;margin:14px 0 0!important;font:600 .78rem ui-monospace,Consolas,"Courier New",monospace;border:1px solid var(--ink);background:var(--acc);padding:.3em .7em}
+@media(max-width:700px){.pgrid{grid-template-columns:1fr}}
+#contatti{border-top:1px solid var(--line)}
 .note{border-left:4px solid var(--acc2);background:#fff;padding:16px 20px}
 .contact .lead{max-width:none}
 .contact a{font-size:1.3rem}
@@ -193,6 +201,19 @@ footer a{color:var(--acc)}
 </section>
 
 
+
+<section>
+<div class="wrap">
+<h2>Dal file al reparto: stampa QR e copie cartacee</h2>
+<p class="lead">Scegliete se gestire la stampa in autonomia o ricevere targhette industriali e manuali cartacei gi&agrave; pronti per la spedizione.</p>
+<div class="pgrid">
+<div class="box pcard"><p class="lbl">01 &middot; FILE PRONTI PER VOI</p><h3>File vettoriali &amp; ZPL</h3><p>QR code ad alta leggibilit&agrave; (correzione errore livello H) in formato SVG, PDF e ZPL per stampanti Zebra e Brady, pronti da integrare nelle vostre targhette matricola.</p><p class="ptag">Ideale se stampate gi&agrave; in casa</p></div>
+<div class="box pcard"><p class="lbl">02 &middot; FORNITURA ADESIVA</p><h3>Etichette in poliestere PET</h3><p>Etichette industriali in poliestere argento o bianco, stampate con ribbon in resina pura: resistenti a oli, solventi, abrasione e sbalzi termici.</p><p class="ptag">Pronte da applicare sui carter</p></div>
+<div class="box pcard"><p class="lbl">03 &middot; FORNITURA METALLICA</p><h3>Targhe incise al laser</h3><p>Targhette in alluminio anodizzato o acciaio inox marcate al laser, con o senza fori di rivettatura, calibrate per una lettura nitida senza riflessi.</p><p class="ptag">Per ambienti gravosi e lavaggi</p></div>
+<div class="box pcard"><p class="lbl">04 &middot; STAMPA MANUALI SU RICHIESTA</p><h3>Copie cartacee rilegate</h3><p>Anche in piccole tirature, da una singola copia per commessa: manuali gi&agrave; impaginati con i QR code integrati, pronti da inserire nella cassa di spedizione quando il cliente chiede la copia cartacea.</p><p class="ptag">Stampa su richiesta, senza magazzino</p></div>
+</div>
+</div>
+</section>
 
 <section id="contatti">
 <div class="wrap contact">

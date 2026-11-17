@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Manuali macchine interattivi, video 3D e AR | Didier Naim Defli</title>
+<meta name="description" content="Manuali d'uso in PDF interattivo, schede componenti, procedure passo passo, video 3D e modello 3D in realtà aumentata con QR per costruttori di macchine. Demo consultabile." />
+<link rel="canonical" href="https://didiernd.com/manuali-macchine/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#131d36;--bg:#fff;--soft:#f3f5f8;--line:#d9dde5;--acc:#d7ff00;--acc2:#ed3a12}
+*{box-sizing:border-box}
+body{margin:0;font:400 1.05rem/1.6 Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:"Share Tech",Arial,sans-serif;font-weight:400;line-height:1.15;margin:0 0 .6em}
+h1{font-size:clamp(2rem,5vw,3.4rem)}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+h3{font-size:1.35rem}
+a{color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{background:var(--ink);padding:14px 0}
+nav .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;font-family:"Share Tech",Arial,sans-serif}
+nav a:hover{color:var(--acc)}
+section{padding:64px 0}
+.soft{background:var(--soft)}
+.herosec{background:linear-gradient(90deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.75) 45%,rgba(255,255,255,.15) 100%),url(img/hero.jpg) center/cover no-repeat}
+.tt{font-weight:700;text-transform:uppercase}
+.hero{display:grid;gap:32px;align-items:center;grid-template-columns:.7fr 1.3fr}
+.stage{perspective:1200px;min-height:560px;display:flex;align-items:center;justify-content:center}
+.deck{position:relative;width:min(100%,720px);aspect-ratio:1/1;transform-style:preserve-3d;transition:transform .15s ease-out}
+.sheet{position:absolute;width:74%;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px rgba(19,29,54,.25);padding:8px;transform-style:preserve-3d}
+.sheet img{width:100%;display:block}
+.sheet .qr{position:absolute;right:16px;bottom:44px;width:26%;background:#fff;padding:4px;border:1px solid var(--line)}
+.sheet span{display:block;font:.8rem "Share Tech",Arial,sans-serif;padding:6px 2px 0}
+.sheet.s1{left:0;top:0;transform:translateZ(10px)}
+.sheet.s2{right:0;top:12%;transform:translateZ(60px)}
+.sheet.s3{left:4%;top:44%;transform:translateZ(110px)}
+.sheet.s4{right:0;bottom:0;transform:translateZ(160px)}
+.card img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.card img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.lead{font-size:1.2rem;max-width:36rem}
+.btn{display:inline-block;background:var(--acc);color:var(--ink);padding:.85rem 1.5rem;font-weight:500;text-decoration:none;border:2px solid var(--ink);margin:.3rem .5rem .3rem 0}
+.btn:hover{background:var(--ink);color:var(--acc)}
+.btn.alt{background:#fff}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.box{border:1px solid var(--line);background:#fff;padding:22px}
+.box h3{margin-bottom:.5em;font-size:1.5rem;display:inline;background:linear-gradient(transparent 62%,var(--acc) 62%);padding:0 .1em}
+.box p{margin-top:.7em}
+.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+@media(min-width:1000px){.g4{grid-template-columns:repeat(4,1fr)}}
+.box ul{margin:.9em 0 0;padding-left:1.1em}
+.box li{margin:.2em 0}
+.box p{margin:0}
+.demo{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#fff;border:1px solid var(--line);padding:16px;display:flex;flex-direction:column}
+.card p{flex:1}
+.prezzo{background:var(--acc);color:var(--ink);text-align:center;padding:48px 0}
+.prezzo p{margin:0;font-family:"Share Tech",Arial,sans-serif;font-size:clamp(1.3rem,3.4vw,2.3rem);line-height:1.25}
+.reel{border:0;padding:0;background:#000;width:min(92vw,960px);max-width:none}
+.reel::backdrop{background:rgba(19,29,54,.85)}
+.reel video{display:block;width:100%;height:auto}
+.reel button{position:absolute;top:8px;right:8px;z-index:1;background:var(--acc);border:2px solid var(--ink);font:inherit;padding:.3rem .8rem;cursor:pointer}
+.compat{background:#131d36;border-top:1px solid #2a3558;border-bottom:1px solid #2a3558;padding:36px 0;color:#e2e8f0}
+.compat h2{font:400 .85rem "Share Tech",Arial,sans-serif;letter-spacing:.14em;margin:0 0 16px;color:#e2e8f0}
+.fmt{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.fmt span{border:1px solid #64748b;padding:8px 16px;font:400 1rem "Share Tech",Arial,sans-serif;letter-spacing:.06em;color:#e2e8f0;background:transparent}
+.stamps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.stamp{display:flex;gap:12px;align-items:center;border:2px solid #94a3b8;padding:12px 14px;font:400 .95rem/1.25 "Share Tech",Arial,sans-serif;letter-spacing:.04em;color:#e2e8f0;text-transform:uppercase}
+.stamp svg{flex:none;width:30px;height:30px;stroke:#e2e8f0;fill:none;stroke-width:1.6}
+.legal{font-size:.8rem;opacity:.8;margin:14px 0 0;color:#fff}
+.soon .tag{display:inline-block;color:var(--acc2);border:2px solid var(--acc2);padding:.1rem .6rem;font:400 .95rem "Share Tech",Arial,sans-serif;letter-spacing:.1em;margin-bottom:.8rem}
+.soon .dim{opacity:.5}
+.tri{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-areas:"voi . loro" ". noi .";column-gap:clamp(40px,7vw,90px);row-gap:80px;margin-top:12px;padding:30px 0 10px}
+.wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.nodo{position:relative;z-index:1;cursor:pointer;border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;justify-content:center;height:140px;box-sizing:border-box;background:#fff;border:1px solid #cbd5e1;box-shadow:0 6px 20px rgba(15,23,42,.1);color:var(--ink)}
+.nodo::after{content:"+";position:absolute;right:10px;top:10px;width:22px;height:22px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;font:500 16px/1 ui-monospace,Consolas,monospace;opacity:.6}
+.nodo.noi::after{color:var(--acc);opacity:.9}
+.nodo:hover::after{opacity:1}
+.nodo.voi{grid-area:voi}.nodo.noi{grid-area:noi}.nodo.loro{grid-area:loro}
+.nodo.noi{background:#0F172A;color:#fff;border:1px solid var(--acc);box-shadow:0 14px 36px rgba(15,23,42,.35)}
+.nodo:hover,.nodo:focus-visible,.nodo[aria-expanded=true]{outline:2px solid var(--acc);outline-offset:2px}
+.lbl{font:600 .8rem/1.3 ui-monospace,Consolas,"Courier New",monospace;letter-spacing:.08em;margin:0;color:#475569}
+.nodo.noi .lbl{color:var(--acc)}
+.nodo .sub{margin:0;font:400 1.3rem/1.2 "Share Tech",Arial,sans-serif}
+.wire{fill:none;stroke:#131d36;stroke-width:2}
+.pulse{fill:none;stroke:#7a9a00;stroke-width:3.5;stroke-linecap:round;stroke-dasharray:1 26;animation:pulse 1.6s linear infinite}
+@keyframes pulse{to{stroke-dashoffset:-27}}
+.wcap{font:600 12px ui-monospace,Consolas,"Courier New",monospace;fill:#131d36;text-anchor:middle;dominant-baseline:central}
+.wpill{fill:#fff;stroke:#94a3b8;stroke-width:1}
+.mcap{display:none;margin:0;text-align:center;font:600 .78rem ui-monospace,Consolas,"Courier New",monospace;color:#131d36}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+@media(max-width:900px){.tri{grid-template-columns:1fr;grid-template-areas:none;row-gap:12px;padding-top:8px}.nodo.voi,.nodo.noi,.nodo.loro{grid-area:auto}.wires{display:none}.mcap{display:block}.nodo{height:auto;min-height:0}}
+.tipbox{position:fixed;z-index:1000;max-width:340px;background:#111827;color:#f1f5f9;border:1px solid var(--acc);box-shadow:0 12px 30px rgba(0,0,0,.3);padding:12px 14px;font:400 .9rem/1.45 Roboto,Arial,sans-serif;pointer-events:none;opacity:0;transition:opacity .12s;left:0;top:0}
+.tipbox.on{opacity:1}
+.reel-line{margin:18px 0 0;font-size:.95rem}
+.soon-strip{margin-top:24px;border:1px dashed #94a3b8;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.soon-strip .tag{margin:0}
+.soon-strip .tag,.soon .tag{display:inline-block;color:var(--acc2);border:2px solid var(--acc2);padding:.1rem .6rem;font:400 .95rem "Share Tech",Arial,sans-serif;letter-spacing:.1em}
+.soon-strip .dim{opacity:.5}
+.note{border-left:4px solid var(--acc2);background:#fff;padding:16px 20px}
+.contact .lead{max-width:none}
+.contact a{font-size:1.3rem}
+footer{background:var(--ink);color:#fff;padding:28px 0;font-size:.95rem}
+footer a{color:var(--acc)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}section{padding:44px 0}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="/">Didier Naim Defli</a><a href="#contatti">Contatti</a></div></nav>
+
+<section class="herosec">
+<div class="wrap hero">
+<div>
+<h1><strong class="tt">Manuali macchina</strong> digitali, stampabili, interattivi</h1>
+<p class="lead">Per i costruttori di macchine pronti per il 2027: un manuale che i vostri clienti leggono a schermo, stampano o aprono dal telefono, con video 3D e un modello in realtà aumentata a portata di <strong>QR code</strong>.</p>
+<a class="btn" href="#demo">Guarda la demo</a>
+<a class="btn alt" href="#contatti">Contattami</a>
+</div>
+<div class="stage"><div class="deck" id="deck">
+<div class="sheet s1"><img src="img/manuale-pag6.jpg" alt="Manuale: pagina 6" /><span>Manuale PDF</span></div>
+<div class="sheet s2"><img src="img/ripari.jpg" alt="Scheda: ripari" /><span>Scheda ripari</span></div>
+<div class="sheet s3"><img src="img/manuale-pag4.jpg" alt="Manuale: pagina 4" /><span>Pagina del manuale</span></div>
+<div class="sheet s4"><img src="img/arresto.jpg" alt="Scheda: arresto di emergenza" /><img class="qr" src="img/qr-ripristino.svg" alt="QR code: procedura di ripristino dopo l'arresto" /><span>Arresto di emergenza, QR: ripristino</span></div>
+</div></div>
+</div>
+</section>
+
+<section class="prezzo"><div class="wrap"><p>Stima su misura in 24 ore &middot; Bastano due foto o la brochure (NDA pronto in giornata)</p></div></section>
+
+<section class="soft" id="demo">
+<div class="wrap">
+<h2>Esempio completo</h2>
+<p class="lead">Caso dimostrativo su una macchina fittizia: un nastro trasportatore. Dati e fabbricante sono inventati.</p>
+<div class="demo">
+<div class="card"><img src="img/manuale-pag1.jpg" loading="lazy" alt="Prima pagina del manuale di esempio" />
+<h3>Manuale in PDF</h3><p>8 pagine in formato A4 orizzontale, con QR che portano ai contenuti digitali.</p>
+<a class="btn" href="/esempi/conveyor/conveyor_eu_safety_01_manuale_esempio.pdf">Apri il PDF</a></div>
+<div class="card"><img src="img/hero.jpg" width="1400" height="791" loading="lazy" alt="Modello 3D del nastro trasportatore" />
+<h3>Modello 3D in AR</h3><p>Ruota il modello o guardalo in scala reale. Funziona dal telefono, senza installare app.</p>
+<a class="btn" href="/esempi/conveyor/3d/">Apri il modello</a></div>
+<div class="card"><img src="img/arresto.jpg" width="1400" height="791" loading="lazy" alt="Dettaglio del pulsante di arresto di emergenza" />
+<h3>Procedura guidata</h3><p>Il ripristino dopo l'arresto di emergenza, da spuntare passo per passo.</p>
+<a class="btn" href="/esempi/conveyor/arresto/">Apri la procedura</a></div>
+</div>
+</div>
+</section>
+
+<section class="compat" aria-label="Compatibilit&agrave; tecnica e standard">
+<div class="wrap">
+<h2>COMPATIBILE CON IL TUO FLUSSO TECNICO</h2>
+<div class="fmt"><span>STEP / IGES</span><span>SOLIDWORKS</span><span>INVENTOR</span><span>glTF / WebAR</span><span>COMMON PAPER</span></div>
+<div class="stamps">
+<div class="stamp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6M12 15h9M12 19h9M12 23h6"/></svg>Istruzioni anche in formato digitale &middot; Reg. (UE) 2023/1230</div>
+<div class="stamp"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="14" width="20" height="14"/><path d="M10 14V9a6 6 0 0 1 12 0v5M16 19v4"/></svg>Riservatezza garantita &middot; NDA Common Paper</div>
+<div class="stamp"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="10" height="10"/><rect x="18" y="4" width="10" height="10"/><rect x="4" y="18" width="10" height="10"/><path d="M18 18h4v4h-4zM24 24h4M18 26h2"/></svg>10 anni di accessibilit&agrave; digitale &amp; stampa A4</div>
+</div></div>
+</section>
+
+<section>
+<div class="wrap">
+<h2>Perché ora</h2>
+<p class="lead">Il Regolamento (UE) 2023/1230 si applica dal 20 gennaio 2027 e consente di fornire le istruzioni anche in formato digitale. Un manuale interattivo è un modo concreto per usare questa possibilità.</p>
+<div class="note"><strong>Cosa è e cosa non è questo servizio.</strong> È comunicazione tecnica: impaginazione, grafica 3D, video e contenuti digitali. Non comprende marcatura CE, fascicolo tecnico né valutazione dei rischi. I contenuti tecnici e le informazioni di sicurezza restano responsabilità dell'ufficio tecnico del costruttore: io li rendo chiari e consultabili.</div>
+</div>
+</section>
+
+<section class="soft">
+<div class="wrap">
+<h2>Come lavoriamo</h2>
+<div class="tri" id="tri">
+<svg class="wires" id="wires" aria-hidden="true"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1l8 4-8 4z" fill="#131d36"/></marker></defs></svg>
+<div class="nodo voi" id="n-voi" tabindex="0" role="button" data-tip="Ci fornite file CAD (STEP, SolidWorks, Inventor) o disegni 2D, foto della macchina o il vecchio manuale, e le vostre note tecniche. Tutto sotto NDA Common Paper, inviato prima di ricevere qualsiasi file.">
+<p class="lbl">VOI &middot; IL COSTRUTTORE</p>
+<p class="sub">Dati tecnici e controllo totale</p>
+</div>
+<p class="mcap">1. Invio dati (NDA) &darr; &middot; 2. Consegna nel vostro flusso &uarr;</p>
+<div class="nodo noi" id="n-noi" tabindex="0" role="button" data-tip="Ottimizzazione 3D ed esplosi numerati, impaginazione del manuale PDF con le istruzioni anche in formato digitale come consente il Regolamento (UE) 2023/1230, video sicurezza, pagine web e AR. Solo comunicazione tecnica.">
+<p class="lbl">NOI &middot; LO STUDIO</p>
+<p class="sub">Modellazione 3D, manuali e AR</p>
+</div>
+<p class="mcap">3. Distribuzione ai clienti &darr;</p>
+<div class="nodo loro" id="n-loro" tabindex="0" role="button" data-tip="Ricevono un PDF interattivo e stampabile, il 3D e la realtà aumentata senza app da QR code, e guide video passo passo per avvio, arresto e manutenzione.">
+<p class="lbl">LORO &middot; I VOSTRI CLIENTI</p>
+<p class="sub">Operatori e manutentori in reparto</p>
+</div>
+</div>
+<p class="reel-line">Esempio di animazioni 3D: <a href="/assets/video/2026_compressed.mp4" id="showreel-link">guarda lo showreel</a></p>
+<div class="soon-strip"><span class="tag">IN ARRIVO</span><span class="dim"><b>Piattaforma online</b> &middot; Area per caricare documenti e modelli &rarr; da qui al manuale finito</span></div>
+</div>
+</div>
+</section>
+
+
+
+<section id="contatti">
+<div class="wrap contact">
+<h2>Parliamone</h2>
+<p class="lead">Mi chiamo Didier e faccio 3D e video da 18 anni, con lavori per la televisione e il motorsport. Quando il progetto lo richiede lavoro con una rete di ingegneri elettronici, informatici e grafici, ma il riferimento resta uno solo: io. Non c'&egrave; un modulo da compilare: scrivimi o chiamami e raccontami la macchina e il manuale che avete oggi. Non serve inviare disegni o file CAD riservati al primo contatto: bastano due foto o la brochure commerciale (NDA pronto in giornata).</p>
+<p>Telefono: <a href="tel:+393931701767">+39 393 1701767</a><br />
+Email: <a href="mailto:info@didiernd.com">info@didiernd.com</a><br />
+<a href="/#portfolio">Portfolio dei miei lavori</a></p>
+</div>
+</section>
+
+<footer><div class="wrap">Didier Naim Defli | <a href="/">didiernd.com</a>
+<p class="legal">Tutti i nomi di software e formati citati (SolidWorks, Inventor, Common Paper, glTF) appartengono ai rispettivi proprietari e sono indicati esclusivamente per descrivere la compatibilit&agrave; tecnica dei flussi di lavoro.</p></div></footer>
+<script>
+(function(){var d=document.getElementById("deck");if(!d||matchMedia("(pointer:coarse)").matches)return;
+var st=d.parentNode;st.addEventListener("mousemove",function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;d.style.transform="rotateY("+(x*26)+"deg) rotateX("+(-y*20)+"deg)"});
+st.addEventListener("mouseleave",function(){d.style.transform="rotateY(-12deg) rotateX(6deg)"});d.style.transform="rotateY(-12deg) rotateX(6deg)"})();
+</script>
+<dialog class="reel" id="reel"><button type="button" id="reel-x" aria-label="Chiudi">Chiudi</button><video id="reel-v" controls playsinline preload="none"></video></dialog>
+<script>
+(function(){var l=document.getElementById("showreel-link"),d=document.getElementById("reel"),v=document.getElementById("reel-v");if(!l||!d.showModal)return;
+l.addEventListener("click",function(e){e.preventDefault();v.src=l.href;d.showModal();v.play()});
+function c(){v.pause();v.removeAttribute("src");v.load();d.close()}
+document.getElementById("reel-x").onclick=c;d.addEventListener("click",function(e){if(e.target===d)c()});d.addEventListener("close",function(){v.pause()})})();
+</script>
+<div class="tipbox" id="tipbox" role="tooltip"></div>
+<script>
+(function(){var box=document.getElementById("tipbox"),cur=null,touch=matchMedia("(hover:none)").matches;
+function show(b){cur=b;box.textContent=b.dataset.tip;box.classList.add("on");var r=b.getBoundingClientRect(),w=box.offsetWidth,h=box.offsetHeight,m=10,x=r.left+r.width/2-w/2;x=Math.max(m,Math.min(x,innerWidth-w-m));var y=r.top-h-8;if(y<m)y=r.bottom+8;box.style.left=x+"px";box.style.top=y+"px";b.setAttribute("aria-expanded","true")}
+function hide(){if(cur)cur.setAttribute("aria-expanded","false");cur=null;box.classList.remove("on")}
+document.querySelectorAll("[data-tip]").forEach(function(b){b.setAttribute("aria-expanded","false");
+if(!touch){b.addEventListener("mouseenter",function(){show(b)});b.addEventListener("mouseleave",hide)}
+b.addEventListener("blur",hide);
+b.addEventListener("click",function(e){e.stopPropagation();if(cur===b&&touch)hide();else show(b)})});
+document.addEventListener("click",hide);addEventListener("scroll",hide,{passive:true});addEventListener("resize",hide)})();
+</script>
+<script>
+(function(){var g=document.getElementById("tri"),w=document.getElementById("wires"),V=document.getElementById("n-voi"),N=document.getElementById("n-noi"),L=document.getElementById("n-loro");if(!g||!w)return;
+var NS="http://www.w3.org/2000/svg";
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+function pill(x,y,t){var g=el("g",{});var rc=el("rect",{class:"wpill",rx:11,ry:11});var e=el("text",{x:x,y:y,class:"wcap"});e.textContent=t;g.appendChild(rc);g.appendChild(e);w.appendChild(g);var bb=e.getBBox();rc.setAttribute("x",bb.x-9);rc.setAttribute("y",bb.y-4);rc.setAttribute("width",bb.width+18);rc.setAttribute("height",bb.height+8)}
+function draw(){w.querySelectorAll("path.wire,path.pulse,g").forEach(function(n){w.removeChild(n)});if(innerWidth<=900)return;
+var gr=g.getBoundingClientRect(),v=V.getBoundingClientRect(),n=N.getBoundingClientRect(),l=L.getBoundingClientRect();
+w.setAttribute("viewBox","0 0 "+gr.width+" "+gr.height);
+var vl=v.left-gr.left,vr=v.right-gr.left,vb=v.bottom-gr.top,vy=v.top+v.height/2-gr.top,vw=v.width,
+nl=n.left-gr.left,nt=n.top-gr.top,nh=n.height,ll=l.left-gr.left;
+function path(d,arrow){var p=el("path",{d:d,class:"wire"});if(arrow)p.setAttribute("marker-end","url(#ah)");w.appendChild(p);w.appendChild(el("path",{d:d,class:"pulse"}))}
+function bez(a,b,c,d){return[(a[0]+3*b[0]+3*c[0]+d[0])/8,(a[1]+3*b[1]+3*c[1]+d[1])/8]}
+function curve(P0,P1,P2,P3,arrow){path("M"+P0+" C"+P1+","+P2+","+P3,arrow);return bez(P0,P1,P2,P3)}
+path("M"+(vr+4)+" "+vy+" L"+(ll-8)+" "+vy,true);
+var x2=vl+vw*.7,x1=vl+vw*.4,y1=nt+nh*.3,y2=nt+nh*.7;
+var m1=curve([x2,vb+4],[x2,y1],[nl-50,y1],[nl-8,y1],true);
+var m2=curve([nl-4,y2],[nl-50,y2],[x1,y2],[x1,vb+10],true);
+pill((vr+ll)/2,vy,"3. Distribuzione ai clienti");
+pill(m1[0],m1[1],"1. Invio dati (NDA)");
+pill(m2[0],m2[1],"2. Consegna nel vostro flusso")}
+draw();addEventListener("load",draw);addEventListener("resize",draw);if(window.ResizeObserver)new ResizeObserver(draw).observe(g);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw)})();
+</script>
+</body>
+</html>

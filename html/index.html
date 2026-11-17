@@ -47,6 +47,13 @@
 
         <!-- Site CSS -->
         <link rel="stylesheet" href="assets/css/style.css" />
+        <style>
+            #ts-hero .hero-kicker{color:#d7ff00;text-transform:uppercase;letter-spacing:.12em;font-size:.95rem;margin-bottom:1rem}
+            #ts-hero h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.1;color:#fff}
+            #ts-hero .hero-lead{color:#fff;font-size:1.2rem;max-width:34rem;margin:1.2rem 0 1.8rem}
+            #ts-hero .hero-cta{display:inline-block;background:#d7ff00;color:#131d36;padding:.9rem 1.6rem;font-weight:500;text-decoration:none}
+            #ts-hero .hero-cta:hover{background:#fff;color:#131d36}
+        </style>
     </head>
     <body class="has-loading-screen">
         <div class="ts-page-wrapper" id="page-top">
@@ -122,15 +129,11 @@
                     class="container position-relative h-100 ts-align__vertical"
                 >
                     <div class="row w-100">
-                        <div class="col-md-8">
-                            <h1>DIDIER NAIM DEFLI</h1>
-                            <h1 class="ts-bubble-border">
-                                <span class="ts-title-rotate">
-                                    <span class="active" data-i18n="hero.word1">Think</span>
-                                    <span data-i18n="hero.word2">Design</span>
-                                    <span data-i18n="hero.word3">Visualize</span>
-                                </span>
-                            </h1>
+                        <div class="col-lg-8">
+                            <p class="hero-kicker" data-i18n="hero.kicker">Didier Naim Defli | 3D e video</p>
+                            <h1 data-i18n="hero.title">Manuali macchine che si vedono, si girano e si seguono dal telefono</h1>
+                            <p class="hero-lead" data-i18n="hero.lead">Manuali in PDF interattivo, guide passo passo, video 3D e modello in realtà aumentata con un QR. Per costruttori di macchine.</p>
+                            <a href="manuali-macchine/" class="hero-cta" data-i18n="hero.cta">Vedi la demo e i dettagli</a>
                         </div>
                     </div>
 
@@ -1663,6 +1666,10 @@
         <script>
             var translations = {
                 en: {
+                    "hero.kicker": "Didier Naim Defli | 3D and video",
+                    "hero.title": "Machine manuals you can see, rotate and follow from your phone",
+                    "hero.lead": "Interactive PDF manuals, step-by-step guides, 3D videos and an augmented reality model behind a QR code. For machine builders.",
+                    "hero.cta": "See the demo and details",
                     "nav.work": "My Work",
                     "nav.services": "Services",
                     "nav.portfolio": "Portfolio",
@@ -1716,6 +1723,10 @@
                     "cat.info23d": "Infographics | 2D/3D Animation"
                 },
                 it: {
+                    "hero.kicker": "Didier Naim Defli | 3D e video",
+                    "hero.title": "Manuali macchine che si vedono, si girano e si seguono dal telefono",
+                    "hero.lead": "Manuali in PDF interattivo, guide passo passo, video 3D e modello in realtà aumentata con un QR. Per costruttori di macchine.",
+                    "hero.cta": "Vedi la demo e i dettagli",
                     "nav.work": "Il mio Lavoro",
                     "nav.services": "Servizi",
                     "nav.portfolio": "Portfolio",
